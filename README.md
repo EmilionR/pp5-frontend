@@ -152,8 +152,15 @@ EPIC - Block Unwanted Content
 <details>
 <summary>Wireframes</summary>
 
-![Wireframe]()
+![Wireframe](documentation/wf-feed-mobile.png)
+![Wireframe](documentation/wf-profile-mobile.png)
+
+![Wireframe](documentation/wf-feed-desktop.png)
+
+![Wireframe](documentation/wf-profile-desktop.png)
 </details>
+
+
 
 ### Accessibility
 
