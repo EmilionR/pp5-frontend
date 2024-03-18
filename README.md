@@ -86,7 +86,6 @@ Flow is an image sharing social media site. Users can post images, comment on po
   * 
 
 * Error pages
-  
 
 ## User Experience
 
@@ -140,6 +139,10 @@ EPIC - User Profile
 EPIC - Block Unwanted Content
 * Block user: As a signed-in user I can block another user so that I do not have to see their posts
 * Report content: As a signed-in user I can report a post so that inappropriate content can be moderated
+
+EPIC - Friends
+* Add friend: As an authenticated user I can add followers to a list of friends so that I can have an inner circle of selected followers
+* Friends only: As an authenticated user I can restrict the visibility of my post so that only followers on my friends list can see it
 
 ## Design
 
