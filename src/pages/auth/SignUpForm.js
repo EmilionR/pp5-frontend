@@ -47,6 +47,7 @@ const SignUpForm = () => {
 
   return (
     <Row className={styles.Row}>
+      {/* Filler image column */}
       <Col
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
@@ -58,11 +59,14 @@ const SignUpForm = () => {
           }
         />
       </Col>
+      {/* Sign-up form column */}
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>
 
           <Form onSubmit={handleSubmit}>
+            
+            {/* Username input */}
             <Form.Group controlId="username">
               <Form.Label className="d-none">username</Form.Label>
               <Form.Control
@@ -80,6 +84,7 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
+            {/* Password input */}
             <Form.Group controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
@@ -97,6 +102,7 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
+            {/* Password Confirmation */}
             <Form.Group controlId="password2">
               <Form.Label className="d-none">Confirm password</Form.Label>
               <Form.Control
@@ -127,10 +133,11 @@ const SignUpForm = () => {
             ))}
           </Form>
         </Container>
-
+        
+        {/* Sign-in message */}
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
-          <span>Already have an account?</span> Sign in
+            <span>Already have an account?</span> Sign in
           </Link>
         </Container>
       </Col>
