@@ -23,6 +23,7 @@ function SignInForm() {
   });
   const { username, password } = signInData;
   const history = useHistory();
+  const [errors, setErrors] = useState({});
 
   // Update the state when the user types in the form
   const handleChange = (event) => {
@@ -38,7 +39,9 @@ function SignInForm() {
     try {
       await axios.post("/dj-rest-auth/login/", signInData);
       history.push("/");
-    } catch (err) {}
+    } catch (err) {
+      setErrors(err.response?.data);
+    }
   };
 
   return (
@@ -72,6 +75,11 @@ function SignInForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.username?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             {/* Password input */}
             <Form.Group controlId="password">
@@ -85,6 +93,11 @@ function SignInForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             {/* Sign in button */}
             <Button
@@ -93,6 +106,11 @@ function SignInForm() {
             >
               Sign In
             </Button>
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert key={idx} variant="warning" className="mt-3">
+                {message}
+              </Alert>
+            ))}
           </Form>
         </Container>
 
