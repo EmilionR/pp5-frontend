@@ -4,7 +4,7 @@ import styles from "../styles/Options.module.css";
 
 const OptionsToggle = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis-v"
+    className="fas fa-ellipsis"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -27,14 +27,14 @@ export const OptionsDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className="fas fa-edit" />
+          <i className="fas fa-pencil" />
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash-alt" />
+          <i className="fas fa-trash" />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
