@@ -1,14 +1,17 @@
 .Comment {
   background-color: #fafafa;
+  align-self: center;
 }
 
 .User {
     font-weight: bold;
     color: #4444dd;
     margin-right: 8px;
+    font-size: 1.1em;
   }
   
   .Time {
     font-weight: lighter;
     color: #444444;
+    font-size: 0.9em;
   }
