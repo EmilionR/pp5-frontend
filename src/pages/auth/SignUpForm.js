@@ -28,6 +28,7 @@ const SignUpForm = () => {
 
   const history = useHistory();
 
+  // Update the state when the user types in the form
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -35,6 +36,7 @@ const SignUpForm = () => {
     });
   };
 
+  // Send the sign-up data to the server
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
