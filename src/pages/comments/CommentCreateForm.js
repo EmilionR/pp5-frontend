@@ -31,12 +31,12 @@ function CommentCreateForm(props) {
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
-      // Update the post state to increment the comments_count
+      // Update the post state to increment the comment_count
       setPost((prevPost) => ({
         results: [
           {
             ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count + 1,
+            comment_count: prevPost.results[0].comment_count + 1,
           },
         ],
       }));

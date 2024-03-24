@@ -13,3 +13,11 @@
   right: 0;
   z-index: 99;
 }
+
+.Toggle {
+  color: #7777dd;
+}
+
+.Toggle:hover {
+  color: #4444dd;
+}

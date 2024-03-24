@@ -4,7 +4,7 @@ import styles from "../styles/Options.module.css";
 
 const OptionsToggle = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis"
+    className={`fas fa-ellipsis ${styles.Toggle}`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
