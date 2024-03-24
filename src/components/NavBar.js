@@ -1,57 +1,92 @@
 import React from "react";
+import axios from "axios";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Special navlink, display to the left when user is signed in
   const addPostIcon = (
     <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/posts/create"
-      >
-        <i className="fas fa-plus-square"></i> New post
-      </NavLink>
-  )
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to="/posts/create"
+    >
+      <i className="fas fa-plus-square"></i>New post
+    </NavLink>
+  );
 
   const loggedOutIcons = (
     <>
+      {/* Sign in */}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className="fas fa-door-open"></i> Sign in
+        <i className="fas fa-door-open"></i>Sign in
       </NavLink>
+      {/* Register new user */}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/signup"
       >
-        <i className="fas fa-user-plus"></i> Sign up
+        <i className="fas fa-user-plus"></i>Join
       </NavLink>
     </>
   );
-  const loggedInIcons = <>
-    <NavLink
+  const loggedInIcons = (
+    <>
+      {/* Feed of followed users */}
+      <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/following"
       >
-        <i className="fas fa-stream"></i> Following
+        <i className="fas fa-user-group"></i>Following
       </NavLink>
+      {/* Feed of liked posts */}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked"
       >
-        <i className="fas fa-heart"></i> Liked
+        <i className="far fa-thumbs-up"></i>Liked
       </NavLink>
-  </>;
+
+      {/* Sign out */}
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-door-closed"></i>Sign out
+      </NavLink>
+
+      {/* Profile */}
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+      </NavLink>
+    </>
+  );
 
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
