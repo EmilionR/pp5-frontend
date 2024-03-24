@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -16,7 +16,30 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/SignInUpForm.module.css";
 
 function SignInForm() {
-  //   Add your component logic here
+  // State to store the sign-in data
+  const [signInData, setSignInData] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = signInData;
+  const history = useHistory();
+
+  // Update the state when the user types in the form
+  const handleChange = (event) => {
+    setSignInData({
+      ...signInData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  // Send the sign-in data to the server
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("/dj-rest-auth/login/", signInData);
+      history.push("/");
+    } catch (err) {}
+  };
 
   return (
     <Row className={styles.Row}>
@@ -26,15 +49,17 @@ function SignInForm() {
         className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
       >
         <Image
-          className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
+          className={`${styles.Image}`}
+          src={
+            "https://res.cloudinary.com/dfs3h5zak/image/upload/v1706451463/samples/animals/cat.jpg"
+          }
         />
       </Col>
       {/* Sign-up form column */}
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             {/* Username input */}
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
@@ -43,6 +68,8 @@ function SignInForm() {
                 placeholder="Username"
                 name="username"
                 className={styles.Input}
+                value={username}
+                onChange={handleChange}
               />
             </Form.Group>
 
@@ -54,9 +81,11 @@ function SignInForm() {
                 placeholder="Password"
                 name="password"
                 className={styles.Input}
+                value={password}
+                onChange={handleChange}
               />
             </Form.Group>
-            
+
             {/* Sign in button */}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
@@ -70,7 +99,7 @@ function SignInForm() {
         {/* Sign-up message */}
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
-            Don't have an account? <span>Sign up now!</span>
+            <span>Don't have an account?</span> Sign up now!
           </Link>
         </Container>
       </Col>
