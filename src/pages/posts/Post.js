@@ -46,6 +46,7 @@ const Post = (props) => {
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
+            // Display a tooltip if the user is the owner of the post
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
@@ -61,6 +62,7 @@ const Post = (props) => {
               <i className={`far fa-thumbs-up ${styles.LikeOutline}`} />
             </span>
           ) : (
+            // Display a tooltip if the user is not logged in
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like posts!</Tooltip>}
@@ -68,6 +70,7 @@ const Post = (props) => {
               <i className="far fa-thumbs-up" />
             </OverlayTrigger>
           )}
+          {/* Display the number of likes and comments */}
           {likes_count}
           <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
