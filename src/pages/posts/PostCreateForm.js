@@ -32,7 +32,6 @@ function PostCreateForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
-  // Update the state with the new value of the input field
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -40,7 +39,6 @@ function PostCreateForm() {
     });
   };
 
-  // Update the image display when an image is selected
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -51,7 +49,6 @@ function PostCreateForm() {
     }
   };
 
-  // Send the form data to the server
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -71,7 +68,6 @@ function PostCreateForm() {
     }
   };
 
-  // The form fields
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -128,7 +124,7 @@ function PostCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={styles.Image} src={image} rounded />
+                    <Image className={appStyles.Image} src={image} rounded />
                   </figure>
                   <div>
                     <Form.Label
