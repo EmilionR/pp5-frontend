@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -10,16 +10,18 @@ import Post from "./Post";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostList.module.css";
 import NoResults from "../../assets/no-results.png";
+import { Form } from "react-bootstrap";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = React.useState({ results: [] });
   const [hasLoaded, setHasLoaded] = React.useState(false);
   const { pathname } = useLocation();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}`);
+        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
@@ -29,12 +31,26 @@ function PostList({ message, filter = "" }) {
 
     setHasLoaded(false);
     fetchPosts();
-  }, [filter, pathname]);
+  }, [filter, query, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
+
+        <i className={`fas fa-search ${styles.SearchIcon}`}></i>
+        <Form className={styles.SearchBar}
+        onSubmit={(event) => event.preventDefault()}
+        >
+            <Form.Control
+                type="text"
+                value={query}
+                placeholder="Search"
+                className="mr-sm-2"
+                onChange={(event) => setQuery(event.target.value)}
+            />
+        </Form>
+
         {hasLoaded ? (
           <>
             {posts.results.length ? (
