@@ -4,4 +4,6 @@
     justify-content: center;
     align-items: center;
     min-height: 120px;
+    background-color: #fafafa;
+    border-radius: 12px;
   }
