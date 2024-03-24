@@ -11,6 +11,8 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/PostList.module.css";
 import NoResults from "../../assets/no-results.png";
 import { Form } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = React.useState({ results: [] });
@@ -33,7 +35,7 @@ function PostList({ message, filter = "" }) {
     setHasLoaded(false);
     // Fetch posts after half a second
     const timer = setTimeout(() => {
-        fetchPosts();
+      fetchPosts();
     }, 500);
     // Clear timer
     return () => clearTimeout(timer);
@@ -43,28 +45,36 @@ function PostList({ message, filter = "" }) {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
-        
+
         {/* Search bar */}
         <i className={`fas fa-search ${styles.SearchIcon}`}></i>
-        <Form className={styles.SearchBar}
-        onSubmit={(event) => event.preventDefault()}
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
         >
-            <Form.Control
-                type="text"
-                value={query}
-                placeholder="Search"
-                className="mr-sm-2"
-                onChange={(event) => setQuery(event.target.value)}
-            />
+          <Form.Control
+            type="text"
+            value={query}
+            placeholder="Search"
+            className="mr-sm-2"
+            onChange={(event) => setQuery(event.target.value)}
+          />
         </Form>
 
         {/* Posts */}
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              posts.results.map((post) => (
-                <Post key={post.id} {...post} setPosts={setPosts} />
-              ))
+              <InfiniteScroll
+                children={posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))
+            }
+            dataLength={posts.results.length}
+            loader={<Asset spinner />}
+            hasMore={!!posts.next}
+            next={() => fetchMoreData(posts, setPosts)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
