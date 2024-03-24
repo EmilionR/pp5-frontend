@@ -1,3 +1,9 @@
 .Container {
     min-height: 345px;
   }
+
+.Image {
+  max-width: 100%;
+  max-height: 10%;
+  object-fit: cover;
+}
