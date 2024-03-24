@@ -29,15 +29,22 @@ function PostList({ message, filter = "" }) {
       }
     };
 
+    // Reset hasLoaded to false
     setHasLoaded(false);
-    fetchPosts();
+    // Fetch posts after half a second
+    const timer = setTimeout(() => {
+        fetchPosts();
+    }, 500);
+    // Clear timer
+    return () => clearTimeout(timer);
   }, [filter, query, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
-
+        
+        {/* Search bar */}
         <i className={`fas fa-search ${styles.SearchIcon}`}></i>
         <Form className={styles.SearchBar}
         onSubmit={(event) => event.preventDefault()}
@@ -51,6 +58,7 @@ function PostList({ message, filter = "" }) {
             />
         </Form>
 
+        {/* Posts */}
         {hasLoaded ? (
           <>
             {posts.results.length ? (
