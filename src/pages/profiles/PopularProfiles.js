@@ -1,35 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import appStyles from "../../App.module.css";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 
 const PopularProfiles = ({ mobile }) => {
-  const [profileData, setProfileData] = React.useState({
-    popularProfiles: { results: [] },
-  });
-  const { popularProfiles } = profileData;
-  const currentUser = useCurrentUser();
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(
-          // Load the top 5 profiles with the most followers
-          `/profiles/?ordering=-follower_count&limit=5`
-        );
-        setProfileData((prevState) => ({
-          ...prevState,
-          popularProfiles: data,
-        }));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handleMount();
-  }, [currentUser]);
+  
+  // Get the popular profiles from the ProfileDataContext
+  const { popularProfiles } = useProfileData();
 
   return (
     <Container
