@@ -30,6 +30,17 @@
     padding: 10px 50px;
     width: 100%;
   }
+
+  .Black {
+    background-color: #242a3d;
+    color: white;
+  }
+
+  .BlackOutline {
+    background-color: transparent;
+    color: #242a3d;
+    border: 1px solid #242a3d;
+  }
   
   .Blue,
   .BlueOutline:hover,

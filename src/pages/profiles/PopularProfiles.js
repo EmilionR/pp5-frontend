@@ -48,16 +48,13 @@ const PopularProfiles = ({ mobile }) => {
               ))}
             </div>
           ) : (
-            <div className="pb-1">
-            {popularProfiles.results.slice(0,10).map((profile) => (
+            popularProfiles.results.slice(0,10).map((profile) => (
               <Profile key={profile.id} profile={profile} />
-            ))}
-            </div>
+            ))
           )}
         </>
       ) : (
         <>
-          <p>No popular profiles found</p>
           <Asset spinner />
         </>
       )}
