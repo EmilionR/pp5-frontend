@@ -38,3 +38,8 @@ i:hover {
   transition: color ease-in 0.2s;
   color: #7777dd;
 }
+
+.Content {
+  justify-content: center;
+  background-color: #fafafa;
+}
