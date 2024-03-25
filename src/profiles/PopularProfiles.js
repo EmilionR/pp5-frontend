@@ -3,6 +3,7 @@ import appStyles from "../App.module.css";
 import { Container } from "react-bootstrap";
 import { axiosReq } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+import Asset from "../components/Asset";
 
 const PopularProfiles = () => {
   const [profileData, setProfileData] = React.useState({
@@ -15,7 +16,7 @@ const PopularProfiles = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-            // Limit the number of displayed profiles to 5
+            // Load the top 5 profiles with the most followers
           `/profiles/?ordering=-follower_count&limit=5`
         );
         setProfileData((prevState) => ({
@@ -31,10 +32,21 @@ const PopularProfiles = () => {
 
   return (
     <Container className={appStyles.Content}>
-      <h4>Most popular profiles</h4>
+        {/* Check if there are popular profiles to display */}
+        {popularProfiles.results.length ? (
+            <>
+            <h4>Most popular profiles</h4>
       {popularProfiles.results.map((profile) => (
         <p key={profile.id}>{profile.owner}</p>
       ))}
+            </>
+        ) : (
+            <>
+            <p>No popular profiles found</p>
+            <Asset spinner />
+            </>
+        )}
+      
     </Container>
   );
 };
