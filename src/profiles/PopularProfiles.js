@@ -5,7 +5,7 @@ import { axiosReq } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import Asset from "../components/Asset";
 
-const PopularProfiles = () => {
+const PopularProfiles = ({ mobile }) => {
   const [profileData, setProfileData] = React.useState({
     popularProfiles: { results: [] },
   });
@@ -16,7 +16,7 @@ const PopularProfiles = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-            // Load the top 5 profiles with the most followers
+          // Load the top 5 profiles with the most followers
           `/profiles/?ordering=-follower_count&limit=5`
         );
         setProfileData((prevState) => ({
@@ -31,22 +31,35 @@ const PopularProfiles = () => {
   }, [currentUser]);
 
   return (
-    <Container className={appStyles.Content}>
-        {/* Check if there are popular profiles to display */}
-        {popularProfiles.results.length ? (
-            <>
-            <h4>Most popular profiles</h4>
-      {popularProfiles.results.map((profile) => (
-        <p key={profile.id}>{profile.owner}</p>
-      ))}
-            </>
-        ) : (
-            <>
-            <p>No popular profiles found</p>
-            <Asset spinner />
-            </>
-        )}
-      
+    <Container
+      className={`${appStyles.Content} ${
+        mobile && "d-lg-none text-center mb-2"
+      }`}
+    >
+      {/* Check if there are popular profiles to display */}
+      {popularProfiles.results.length ? (
+        <>
+          <h4 className="pt-2">Most popular profiles</h4>
+          {mobile ? (
+            <div className="d-flex flex-wrap g-2 justify-content-around">
+              {popularProfiles.results.slice(0, 5).map((profile) => (
+                <p key={profile.id}>{profile.owner}</p>
+              ))}
+            </div>
+          ) : (
+            <div className="pb-1">
+            {popularProfiles.results.slice(0,10).map((profile) => (
+              <p key={profile.id}>{profile.owner}</p>
+            ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <p>No popular profiles found</p>
+          <Asset spinner />
+        </>
+      )}
     </Container>
   );
 };
