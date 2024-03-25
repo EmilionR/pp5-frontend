@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import appStyles from "../App.module.css";
+import appStyles from "../../App.module.css";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../api/axiosDefaults";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import Asset from "../components/Asset";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Asset from "../../components/Asset";
+import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
   const [profileData, setProfileData] = React.useState({
@@ -43,13 +44,13 @@ const PopularProfiles = ({ mobile }) => {
           {mobile ? (
             <div className="d-flex flex-wrap g-2 justify-content-around">
               {popularProfiles.results.slice(0, 5).map((profile) => (
-                <p key={profile.id}>{profile.owner}</p>
+                <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
           ) : (
             <div className="pb-1">
             {popularProfiles.results.slice(0,10).map((profile) => (
-              <p key={profile.id}>{profile.owner}</p>
+              <Profile key={profile.id} profile={profile} />
             ))}
             </div>
           )}

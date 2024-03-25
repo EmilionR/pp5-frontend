@@ -13,7 +13,7 @@ import NoResults from "../../assets/no-results.png";
 import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import PopularProfiles from "../../profiles/PopularProfiles";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = React.useState({ results: [] });
