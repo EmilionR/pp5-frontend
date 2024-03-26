@@ -38,6 +38,7 @@ const Post = (props) => {
   const history = useHistory();
   const [showReportForm, setShowReportForm] = useState(false);
   const [reportText, setReportText] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleLike = async () => {
     try {
@@ -98,6 +99,7 @@ const Post = (props) => {
         content: reportText
       });
       setShowReportForm(false);
+      setShowConfirmation(true);
     } catch (err) {
       console.log(err);
     }
@@ -163,7 +165,12 @@ const Post = (props) => {
           {comment_count}
           {!is_owner ? (
             <Button className={styles.Button} onClick={toggleReportForm}>
-              <i className={`far fa-flag ${styles.Flag}`}></i>Report
+              {showReportForm
+              ? 
+                <><i className={`fas fa-xmark ${styles.Flag}`}></i>Cancel</>
+                 : 
+                <><i className={`far fa-flag ${styles.Flag}`}></i>Report</>
+                }
             </Button>
           ) : null}
         </div>
@@ -185,6 +192,11 @@ const Post = (props) => {
               </Form.Group>
               <Button type="submit">Submit Report</Button>
             </Form>
+          </div>
+        )}
+        {showConfirmation && (
+          <div className="pt-3">
+            <strong className="h4">Your report has been sent!</strong>
           </div>
         )}
       </Card.Body>
