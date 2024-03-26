@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -85,6 +85,7 @@ const Post = (props) => {
           <div className="d-flex align-items-center">
             <span>{updated_on}</span>
             {is_owner && postPage && (
+              // Display options dropdown if the user is the owner of the post
             <OptionsDropdown
               handleEdit={handleEdit}
               handleDelete={handleDelete}
@@ -131,6 +132,11 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comment_count}
+          {!is_owner  ? (
+              <Button className={styles.Button}>
+                <i className={`far fa-flag ${styles.Flag}`}></i>Report
+              </Button>
+            ) : null}
         </div>
       </Card.Body>
     </Card>
