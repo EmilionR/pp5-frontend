@@ -30,8 +30,22 @@ export const followHelper = (profile, clickedProfile, following_id) => {
       }
     : profile.is_owner
     ? // Update the following count of the signed-in user
-      // update its following count
       { ...profile, following_count: profile.following_count + 1 }
+    : // user cannot follow self, return unchanged
+      profile;
+};
+
+export const unfollowHelper = (profile, clickedProfile) => {
+  return profile.id === clickedProfile.id
+    ? // update the follower count of this profile and set its following id
+      {
+        ...profile,
+        followers_count: profile.followers_count - 1,
+        following_id: null,
+      }
+    : profile.is_owner
+    ? // Update the following count of the signed-in user
+      { ...profile, following_count: profile.following_count - 1 }
     : // user cannot follow self, return unchanged
       profile;
 };
