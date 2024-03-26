@@ -16,6 +16,7 @@ import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import BlockedComment from "../comments/BlockedComment";
 
 function PostPage() {
   const { id } = useParams();
@@ -24,6 +25,7 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const [blocks, setBlocks] = React.useState([]);
 
   // Fetch post data
   useEffect(() => {
@@ -40,7 +42,17 @@ function PostPage() {
       }
     };
 
+    const blockList = async () => {
+      try {
+        const { data } = await axiosReq.get("/blocks/");
+        setBlocks(data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     handleMount();
+    blockList();
   }, [id]);
 
   return (
@@ -65,12 +77,17 @@ function PostPage() {
           {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (
+                blocks.some(block => block.target === comment.profile_id)
+                ? (
+                  <BlockedComment />
+                ) : (
                 <Comment
                   key={comment.id}
                   {...comment}
                   setPost={setPost}
                   setComments={setComments}
                 />
+                )
               ))}
               dataLength={comments.results.length}
               loader={<Asset spinner />}

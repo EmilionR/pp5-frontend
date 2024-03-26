@@ -1,0 +1,23 @@
+.Blocked {
+    background-color: #fababa;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  
+  .Icon,
+  .Icon:hover,
+  .Icon:focus {
+      color: #4444dd;
+      margin-right: 8px;
+      font-size: 2rem;
+      padding: 0 0.5em;
+      color: #444444;
+      cursor: default;
+    }
+    
+    .Content {
+      color: #444444;
+      padding-top: 0.5em;
+    }
