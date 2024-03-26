@@ -57,7 +57,6 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route render={() => <h1>Page not found!</h1>} />
           <Route
             exact
             path="/profiles/:id/edit/username"
@@ -73,6 +72,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
     </div>
