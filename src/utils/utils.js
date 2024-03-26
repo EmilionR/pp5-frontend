@@ -49,3 +49,17 @@ export const unfollowHelper = (profile, clickedProfile) => {
     : // user cannot follow self, return unchanged
       profile;
 };
+
+export const blockHelper = (profile, clickedProfile, block_id) => {
+  return profile.id === clickedProfile.id
+    ? // update the block count of this profile and set its block id
+      {
+        ...profile,
+        block_id,
+      }
+    : profile.is_owner
+    ? // Update the block count of the signed-in user
+      { ...profile, following_count: profile.following_count + 1 }
+    : // user cannot block self, return unchanged
+      profile;
+};
