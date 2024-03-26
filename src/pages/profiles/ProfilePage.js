@@ -32,7 +32,7 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const { setProfileData, handleFollow, handleUnfollow, handleBlock } = useSetProfileData();
+  const { setProfileData, handleFollow, handleUnfollow, handleBlock, handleUnblock } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
@@ -112,7 +112,7 @@ function ProfilePage() {
             (profile?.block_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => {}}
+                onClick={() => handleUnblock(profile)}
               >
                 Unblock
               </Button>

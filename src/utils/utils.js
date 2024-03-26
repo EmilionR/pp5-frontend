@@ -58,8 +58,20 @@ export const blockHelper = (profile, clickedProfile, block_id) => {
         block_id,
       }
     : profile.is_owner
-    ? // Update the block count of the signed-in user
-      { ...profile, following_count: profile.following_count + 1 }
+    ? { ...profile }
+    : // user cannot block self, return unchanged
+      profile;
+};
+
+export const unblockHelper = (profile, clickedProfile) => {
+  return profile.id === clickedProfile.id
+    ? // update the block count of this profile and set its block id
+      {
+        ...profile,
+        block_id: null,
+      }
+    : profile.is_owner
+    ? { ...profile }
     : // user cannot block self, return unchanged
       profile;
 };
