@@ -20,8 +20,19 @@ function PostList({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = React.useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
+  const [blocks, setBlocks] = React.useState([]);
 
   useEffect(() => {
+
+    const blockList = async () => {
+      try {
+        const { data } = await axiosReq.get("/blocks/");
+        setBlocks(data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     const fetchPosts = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
@@ -37,6 +48,7 @@ function PostList({ message, filter = "" }) {
     // Fetch posts after half a second
     const timer = setTimeout(() => {
       fetchPosts();
+      blockList();
     }, 500);
     // Clear timer
     return () => clearTimeout(timer);
@@ -45,7 +57,7 @@ function PostList({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <PopularProfiles mobile />
+        <PopularProfiles mobile />
 
         {/* Search bar */}
         <i className={`fas fa-search ${styles.SearchIcon}`}></i>
@@ -67,14 +79,15 @@ function PostList({ message, filter = "" }) {
           <>
             {posts.results.length ? (
               <InfiniteScroll
-                children={posts.results.map((post) => (
-                  <Post key={post.id} {...post} setPosts={setPosts} />
-                ))
-            }
-            dataLength={posts.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!posts.next}
-            next={() => fetchMoreData(posts, setPosts)}
+                children={posts.results.map((post) =>
+                  blocks.some(block => block.target === post.profile_id) ? null : (
+                    <Post key={post.id} {...post} setPosts={setPosts} />
+                  )
+                )}
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => fetchMoreData(posts, setPosts)}
               />
             ) : (
               <Container className={appStyles.Content}>
