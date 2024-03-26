@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Form,
+  InputGroup,
+  Media,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -28,6 +36,7 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [showReportForm, setShowReportForm] = useState(false);
 
   const handleLike = async () => {
     try {
@@ -74,6 +83,12 @@ const Post = (props) => {
     }
   };
 
+  const toggleReportForm = () => {
+    setShowReportForm(!showReportForm);
+  };
+
+  const handleReport = async () => {};
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -86,10 +101,10 @@ const Post = (props) => {
             <span>{updated_on}</span>
             {is_owner && postPage && (
               // Display options dropdown if the user is the owner of the post
-            <OptionsDropdown
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
-            />
+              <OptionsDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
             )}
           </div>
         </Media>
@@ -132,12 +147,30 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comment_count}
-          {!is_owner  ? (
-              <Button className={styles.Button}>
-                <i className={`far fa-flag ${styles.Flag}`}></i>Report
-              </Button>
-            ) : null}
+          {!is_owner ? (
+            <Button className={styles.Button} onClick={toggleReportForm}>
+              <i className={`far fa-flag ${styles.Flag}`}></i>Report
+            </Button>
+          ) : null}
         </div>
+        {showReportForm && (
+          <div>
+            {/* Report form */}
+            <Form>
+              {/* Form fields for the report */}
+              <Form.Group>
+                <InputGroup>
+                <Form.Label className="d-none">Reason for report</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Please provide a reason for reporting this post."
+                  />
+                </InputGroup>
+              </Form.Group>
+              <Button type="submit">Submit Report</Button>
+            </Form>
+          </div>
+        )}
       </Card.Body>
     </Card>
   );
