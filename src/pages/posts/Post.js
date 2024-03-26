@@ -37,6 +37,7 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
   const [showReportForm, setShowReportForm] = useState(false);
+  const [reportText, setReportText] = useState("");
 
   const handleLike = async () => {
     try {
@@ -87,7 +88,20 @@ const Post = (props) => {
     setShowReportForm(!showReportForm);
   };
 
-  const handleReport = async () => {};
+  const handleReport = async (event) => {
+    event.preventDefault();
+    // Send a POST request to the API to report the post
+    try {
+      await axiosRes.post("/reports/", {
+        owner: currentUser,
+        post: id,
+        content: reportText
+      });
+      setShowReportForm(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -156,14 +170,16 @@ const Post = (props) => {
         {showReportForm && (
           <div>
             {/* Report form */}
-            <Form>
+            <Form onSubmit={handleReport}>
               {/* Form fields for the report */}
               <Form.Group>
                 <InputGroup>
-                <Form.Label className="d-none">Reason for report</Form.Label>
+                  <Form.Label className="d-none">Reason for report</Form.Label>
                   <Form.Control
                     as="textarea"
                     placeholder="Please provide a reason for reporting this post."
+                    value={reportText}
+                    onChange={(e) => setReportText(e.target.value)}
                   />
                 </InputGroup>
               </Form.Group>
