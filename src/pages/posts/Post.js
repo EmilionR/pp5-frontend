@@ -15,6 +15,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { OptionsDropdown } from "../../components/Options";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import btnStyles from "../../styles/Button.module.css";
 
 const Post = (props) => {
   const {
@@ -164,7 +165,7 @@ const Post = (props) => {
           </Link>
           {comment_count}
           {!is_owner ? (
-            <Button className={styles.Button} onClick={toggleReportForm}>
+            <Button className={`${btnStyles.Button} ${styles.Button}`} onClick={toggleReportForm}>
               {showReportForm
               ? 
                 <><i className={`fas fa-xmark ${styles.Flag}`}></i>Cancel</>
@@ -175,7 +176,7 @@ const Post = (props) => {
           ) : null}
         </div>
         {showReportForm && (
-          <div>
+          <div className="mt-3">
             {/* Report form */}
             <Form onSubmit={handleReport}>
               {/* Form fields for the report */}
@@ -190,7 +191,11 @@ const Post = (props) => {
                   />
                 </InputGroup>
               </Form.Group>
-              <Button type="submit">Submit Report</Button>
+              <Button
+              className={`${btnStyles.Button} ${btnStyles.Black} mx-2`}
+              type="submit"
+              >
+                Submit Report</Button>
             </Form>
           </div>
         )}
