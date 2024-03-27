@@ -102,13 +102,13 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Black}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+      <Button className={`${btnStyles.Button} ${btnStyles.Black}`} type="submit">
+        Update
       </Button>
     </>
   );
@@ -117,7 +117,7 @@ const ProfileEditForm = () => {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={appStyles.Content}>
+          <Container className={`${appStyles.Content} p-3`}>
             <Form.Group>
               {image && (
                 <figure>
@@ -131,10 +131,10 @@ const ProfileEditForm = () => {
               ))}
               <div>
                 <Form.Label
-                  className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
+                  className={`${btnStyles.Button} ${btnStyles.Black} btn my-auto`}
                   htmlFor="image-upload"
                 >
-                  Change the image
+                  Change image
                 </Form.Label>
               </div>
               <Form.File
@@ -155,7 +155,7 @@ const ProfileEditForm = () => {
           </Container>
         </Col>
         <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={`${appStyles.Content} p-3`}>{textFields}</Container>
         </Col>
       </Row>
     </Form>
