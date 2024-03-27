@@ -75,3 +75,29 @@ export const unblockHelper = (profile, clickedProfile) => {
     : // user cannot block self, return unchanged
       profile;
 };
+
+export const friendHelper = (profile, clickedProfile, friend_id) => {
+  return profile.id === clickedProfile.id
+    ? // update the block count of this profile and set its block id
+      {
+        ...profile,
+        friend_id,
+      }
+    : profile.is_owner
+    ? { ...profile }
+    : // user cannot block self, return unchanged
+      profile;
+};
+
+export const unfriendHelper = (profile, clickedProfile) => {
+  return profile.id === clickedProfile.id
+    ? // update the block count of this profile and set its block id
+      {
+        ...profile,
+        friend_id: null,
+      }
+    : profile.is_owner
+    ? { ...profile }
+    : // user cannot block self, return unchanged
+      profile;
+};

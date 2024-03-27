@@ -45,6 +45,7 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
 
   const [myFollowers, setMyFollowers] = useState([]);
+  const [myFriends, setMyFriends] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,10 +54,12 @@ function ProfilePage() {
           { data: pageProfile },
           { data: profilePosts },
           { data: followerData },
+          { data: friendsData },
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/posts/?owner__profile=${id}`),
           axiosReq.get("/followers/"),
+          axiosReq.get("/friends/"),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
@@ -65,10 +68,16 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
 
+        // Filter followers and friends
         const filteredFollowers = followerData.results.filter(
           (follow) => follow.followed === currentUser?.pk
         );
         setMyFollowers(filteredFollowers);
+
+        const filteredFriends = friendsData.results.filter(
+          (friend) => friend.owner === currentUser?.pk
+        );
+        setMyFriends(filteredFriends);
       } catch (error) {
         console.log(error);
       }
@@ -93,7 +102,8 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           {/* Show whether the user is following you */}
-          {myFollowers.some((follow) => follow.owner === profile?.owner) ? (
+          {currentUser &&
+          myFollowers.some((follow) => follow.owner === profile?.owner) ? (
             <span className={styles.FollowsYou}>
               Follows you<i className="fas fa-check"></i>
             </span>
@@ -113,20 +123,42 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right mt-3 d-flex flex-column">
+        <Col lg={3} className="text-lg-right mt-3 d-flex flex-lg-column">
+
+          {/* Friendship */}
+          {currentUser &&
+          myFollowers.some((follow) => follow.owner === profile?.owner) ? (
+            myFriends.some((friend) => friend.friend === profile?.owner) ? (
+              <Button
+              className={`${btnStyles.Button} ${btnStyles.Black} m-1`}
+              onClick={() => {}}
+            >
+              Friend
+            </Button>
+            ) : (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
+                onClick={() => {}}
+              >
+                Unfriend
+              </Button>
+            
+            )
+          ) : null}
+
           {/* Follow / Unfollow user */}
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
                 onClick={() => handleUnfollow(profile)}
               >
                 Unfollow
               </Button>
             ) : (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                className={`${btnStyles.Button} ${btnStyles.Black} m-1`}
                 onClick={() => handleFollow(profile)}
               >
                 Follow
@@ -137,14 +169,14 @@ function ProfilePage() {
             !is_owner &&
             (profile?.block_id ? (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
                 onClick={() => handleUnblock(profile)}
               >
                 Unblock
               </Button>
             ) : (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                className={`${btnStyles.Button} ${btnStyles.Black} m-1`}
                 onClick={() => handleBlock(profile)}
               >
                 Block
@@ -182,7 +214,7 @@ function ProfilePage() {
 
   return (
     <Row>
-      <Col className="py-4" lg={8}>
+      <Col className="p-0 p-lg-2" lg={8}>
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
