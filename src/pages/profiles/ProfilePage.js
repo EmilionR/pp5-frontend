@@ -38,6 +38,8 @@ function ProfilePage() {
     handleUnfollow,
     handleBlock,
     handleUnblock,
+    handleFriend,
+    handleUnfriend,
   } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
@@ -75,7 +77,7 @@ function ProfilePage() {
         setMyFollowers(filteredFollowers);
 
         const filteredFriends = friendsData.results.filter(
-          (friend) => friend.owner === currentUser?.pk
+          (friend) => friend.owner === currentUser?.username
         );
         setMyFriends(filteredFriends);
       } catch (error) {
@@ -85,8 +87,7 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData, currentUser]);
 
-  console.log(myFollowers);
-  console.log(pageProfile);
+  console.log(myFriends)
 
   const mainProfile = (
     <>
@@ -123,24 +124,24 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right mt-3 d-flex flex-lg-column">
+        <Col lg={3} className="mt-3 d-flex flex-lg-column">
 
-          {/* Friendship */}
+          {/* Display friend/unfriend button only if the profile owner is following the current user */}
           {currentUser &&
           myFollowers.some((follow) => follow.owner === profile?.owner) ? (
-            myFriends.some((friend) => friend.friend === profile?.owner) ? (
+            myFriends.some((item) => item.friend_name === profile?.owner) ? (
               <Button
-              className={`${btnStyles.Button} ${btnStyles.Black} m-1`}
-              onClick={() => {}}
+              className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
+              onClick={() => {handleUnfriend(profile)}}
             >
-              Friend
+              Unfriend
             </Button>
             ) : (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
-                onClick={() => {}}
+                className={`${btnStyles.Button} ${btnStyles.Black} m-1`}
+                onClick={() => {handleFriend(profile)}}
               >
-                Unfriend
+                Friend
               </Button>
             
             )
