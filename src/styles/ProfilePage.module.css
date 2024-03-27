@@ -1,13 +1,23 @@
 .ProfileImage {
-    object-fit: cover;
-    height: 120px;
-    width: 120px;
-    margin: 4px;
+  object-fit: cover;
+  height: 120px;
+  width: 120px;
+  margin: 4px;
+}
+
+.FollowsYou {
+  font-weight: 500;
+}
+
+.FollowsYou,
+.FollowsYou i,
+.FollowsYou i:hover {
+  color: #7777dd;
+}
+
+@media screen and (max-width: 991px) {
+  .ProfileImage {
+    width: 250px;
+    height: 250px;
   }
-  
-  @media screen and (max-width: 991px) {
-    .ProfileImage {
-      width: 250px;
-      height: 250px;
-    }
-  }
+}

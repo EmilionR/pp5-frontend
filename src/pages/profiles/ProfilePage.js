@@ -32,32 +32,52 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const { setProfileData, handleFollow, handleUnfollow, handleBlock, handleUnblock } = useSetProfileData();
+  const {
+    setProfileData,
+    handleFollow,
+    handleUnfollow,
+    handleBlock,
+    handleUnblock,
+  } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
+  const [myFollowers, setMyFollowers] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/posts/?owner__profile=${id}`),
-          ]);
+        const [
+          { data: pageProfile },
+          { data: profilePosts },
+          { data: followerData },
+        ] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+          axiosReq.get("/followers/"),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
+
+        const filteredFollowers = followerData.results.filter(
+          (follow) => follow.followed === currentUser?.pk
+        );
+        setMyFollowers(filteredFollowers);
+      } catch (error) {
+        console.log(error);
       }
     };
     fetchData();
-  }, [id, setProfileData]);
+  }, [id, setProfileData, currentUser]);
+
+  console.log(myFollowers);
+  console.log(pageProfile);
 
   const mainProfile = (
     <>
@@ -72,6 +92,12 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
+          {/* Show whether the user is following you */}
+          {myFollowers.some((follow) => follow.owner === profile?.owner) ? (
+            <span className={styles.FollowsYou}>
+              Follows you<i className="fas fa-check"></i>
+            </span>
+          ) : null}
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.post_count}</div>
@@ -87,7 +113,7 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right mt-3">
+        <Col lg={3} className="text-lg-right mt-3 d-flex flex-column">
           {/* Follow / Unfollow user */}
           {currentUser &&
             !is_owner &&
@@ -106,8 +132,8 @@ function ProfilePage() {
                 Follow
               </Button>
             ))}
-            {/* Block / Unblock user */}
-            {currentUser &&
+          {/* Block / Unblock user */}
+          {currentUser &&
             !is_owner &&
             (profile?.block_id ? (
               <Button
