@@ -23,11 +23,13 @@ import { useRedirect } from "../../hooks/useRedirect";
 function PostCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
+  const [friendsOnly, setFriendsOnly] = useState(false);
 
   const [postData, setPostData] = useState({
     title: "",
     content: "",
     image: "",
+    visibility: "",
   });
   const { title, content, image } = postData;
 
@@ -39,6 +41,10 @@ function PostCreateForm() {
       ...postData,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleVisibilityChange = (event) => {
+    setFriendsOnly(event.target.checked);
   };
 
   const handleChangeImage = (event) => {
@@ -58,6 +64,9 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
+    formData.append("friends_only", friendsOnly);
+
+    console.log(friendsOnly);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -103,14 +112,37 @@ function PostCreateForm() {
         </Alert>
       ))}
 
+      <Form.Group className="mb-0 pb-0">
+        <Form.Label>Only visible to friends?</Form.Label>
+        <Form.Check
+          aria-label="Only show this post to friends"
+          name="visibility"
+          className={styles.Checkbox}
+        >
+          <Form.Check.Input
+            type="checkbox"
+            checked={friendsOnly}
+            onChange={handleVisibilityChange}
+          />
+        </Form.Check>
+      </Form.Group>
+      {errors?.visibility?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Black}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        type="submit"
+      >
+        Post
       </Button>
     </div>
   );
@@ -166,7 +198,9 @@ function PostCreateForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={`${appStyles.Content} pb-3`}>
+            {textFields}
+          </Container>
         </Col>
       </Row>
     </Form>

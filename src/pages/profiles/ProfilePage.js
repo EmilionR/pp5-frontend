@@ -87,8 +87,6 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData, currentUser]);
 
-  console.log(myFriends)
-
   const mainProfile = (
     <>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
