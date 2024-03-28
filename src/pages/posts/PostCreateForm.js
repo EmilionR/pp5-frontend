@@ -43,10 +43,12 @@ function PostCreateForm() {
     });
   };
 
+  // Update the friendsOnly state when the user checks the checkbox
   const handleVisibilityChange = (event) => {
     setFriendsOnly(event.target.checked);
   };
 
+  // Update the state when the user types in the form
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -57,6 +59,7 @@ function PostCreateForm() {
     }
   };
 
+  // Submit the form data to the API endpoint
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -158,7 +161,7 @@ function PostCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
+                    <Image className="w-100" src={image} />
                   </figure>
                   <div>
                     <Form.Label

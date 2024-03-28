@@ -27,6 +27,7 @@ function PostEditForm() {
   const imageInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
+  const [friendsOnly, setFriendsOnly] = useState(false);
 
   useEffect(() => {
     // Fetch the post data
@@ -43,6 +44,11 @@ function PostEditForm() {
     //
     handleMount();
   }, [history, id]);
+
+  // Update the friendsOnly state when the user checks the checkbox
+  const handleVisibilityChange = (event) => {
+    setFriendsOnly(event.target.checked);
+  };
 
   // Update the state when the user types in the form
   const handleChange = (event) => {
@@ -119,13 +125,36 @@ function PostEditForm() {
         </Alert>
       ))}
 
+      <Form.Group className="mb-0 pb-0">
+        <Form.Label>Only visible to friends?</Form.Label>
+        <Form.Check
+          aria-label="Only show this post to friends"
+          name="visibility"
+          className={styles.Checkbox}
+        >
+          <Form.Check.Input
+            type="checkbox"
+            checked={friendsOnly}
+            onChange={handleVisibilityChange}
+          />
+        </Form.Check>
+      </Form.Group>
+      {errors?.visibility?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Black} mx-2`}
         onClick={() => history.goBack()}
       >
         Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Black} mx-2`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Black} mx-2`}
+        type="submit"
+      >
         Update
       </Button>
     </div>
@@ -140,7 +169,7 @@ function PostEditForm() {
           >
             <Form.Group className="text-center">
               <figure>
-                <Image className={appStyles.Image} src={image} rounded />
+                <Image className="w-100" src={image} rounded />
               </figure>
               <div>
                 <Form.Label
