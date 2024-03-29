@@ -14,7 +14,7 @@ const OptionsToggle = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const OptionsDropdown = ({ handleEdit, handleDelete }) => {
+export const OptionsDropdown = ({ handleEdit, handleDelete, showToast }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={OptionsToggle} />

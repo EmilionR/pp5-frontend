@@ -20,7 +20,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
-function PostCreateForm() {
+function PostCreateForm({showToast}) {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [friendsOnly, setFriendsOnly] = useState(false);
@@ -69,10 +69,9 @@ function PostCreateForm() {
     formData.append("image", imageInput.current.files[0]);
     formData.append("friends_only", friendsOnly);
 
-    console.log(friendsOnly);
-
     try {
       const { data } = await axiosReq.post("/posts/", formData);
+      showToast("Success!", "Post created.");
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);

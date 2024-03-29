@@ -10,7 +10,7 @@ import Post from "./Post";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostList.module.css";
 import NoResults from "../../assets/no-results.png";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
@@ -24,10 +24,6 @@ function PostList({ message, showToast, filter = "" }) {
   const [blocks, setBlocks] = React.useState([]);
   const [friends, setFriends] = React.useState([]);
   const currentUser = useCurrentUser();
-
-  const handleShowToast = (title, message) => {
-    showToast("Success", "Post success");
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +64,6 @@ function PostList({ message, showToast, filter = "" }) {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Button onClick={handleShowToast}>Click me</Button>
         {/* Search bar */}
         <i className={`fas fa-search ${styles.SearchIcon}`}></i>
         <Form

@@ -32,6 +32,7 @@ const Post = (props) => {
     updated_on,
     postPage,
     setPosts,
+    showToast,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -80,6 +81,7 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
+      showToast("Success!", "Post deleted.")
       history.goBack();
     } catch (err) {
       console.log(err);

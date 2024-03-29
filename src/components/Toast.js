@@ -4,7 +4,6 @@ import styles from "../styles/Toast.module.css";
 const Toast = ({ toastList, position, setList }) => {
   const deleteToast = useCallback(
     (id) => {
-      console.log("Deleting toast");
       const toastListItem = toastList.filter((toast) => toast.id !== id);
       setList(toastListItem);
     },

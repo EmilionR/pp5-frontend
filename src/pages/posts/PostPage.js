@@ -18,7 +18,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import BlockedComment from "../comments/BlockedComment";
 
-function PostPage() {
+function PostPage({showToast}) {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
 
@@ -50,7 +50,7 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
       <PopularProfiles mobile />
-        <Post {...post.results[0]} setPosts={setPost} postPage />
+        <Post {...post.results[0]} setPosts={setPost} postPage showToast={showToast}  />
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
