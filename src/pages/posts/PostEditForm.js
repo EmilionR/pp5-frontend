@@ -34,9 +34,10 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, image, is_owner, friends_only } = data;
         // Redirect if the user is not the owner of the post
         is_owner ? setPostData({ title, content, image }) : history.push("/");
+        setFriendsOnly(friends_only);
       } catch (err) {
         console.log(err);
       }
@@ -57,6 +58,7 @@ function PostEditForm() {
       [event.target.name]: event.target.value,
     });
   };
+  
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
@@ -78,6 +80,7 @@ function PostEditForm() {
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
     }
+    formData.append("friends_only", friendsOnly);
 
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
