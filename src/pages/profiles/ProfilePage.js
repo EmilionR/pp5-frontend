@@ -47,7 +47,6 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
 
   const [myFollowers, setMyFollowers] = useState([]);
-  const [myFriends, setMyFriends] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,19 +55,16 @@ function ProfilePage() {
           { data: pageProfile },
           { data: profilePosts },
           { data: followerData },
-          { data: friendsData },
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/posts/?owner__profile=${id}`),
           axiosReq.get("/followers/"),
-          axiosReq.get("/friends/"),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
-        setHasLoaded(true);
 
         // Filter followers and friends
         const filteredFollowers = followerData.results.filter(
@@ -76,15 +72,13 @@ function ProfilePage() {
         );
         setMyFollowers(filteredFollowers);
 
-        const filteredFriends = friendsData.results.filter(
-          (friend) => friend.owner === currentUser?.username
-        );
-        setMyFriends(filteredFriends);
+        setHasLoaded(true);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
+
   }, [id, setProfileData, currentUser]);
 
   const mainProfile = (
@@ -127,7 +121,7 @@ function ProfilePage() {
           {/* Display friend/unfriend button only if the profile owner is following the current user */}
           {currentUser &&
           myFollowers.some((follow) => follow.owner === profile?.owner) ? (
-            myFriends.some((item) => item.friend_name === profile?.owner) ? (
+            profile.friend_id ? (
               <Button
               className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
               onClick={() => {handleUnfriend(profile)}}
@@ -195,7 +189,11 @@ function ProfilePage() {
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
-            <Post key={post.id} {...post} setPosts={setProfilePosts} />
+            post.friends_only && !profile.friend_id ? (
+              post.friends_only
+            ) : (
+              <Post key={post.id} {...post} setPosts={setProfilePosts} />
+            ) 
           ))}
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}

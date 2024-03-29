@@ -31,7 +31,7 @@ function PostPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }, { data: comments }] = await Promise.all([
+        const [ { data: post }, { data: comments } ] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
@@ -79,7 +79,8 @@ function PostPage() {
               children={comments.results.map((comment) => (
                 blocks.some(block => block.target === comment.profile_id)
                 ? (
-                  <BlockedComment />
+                  <BlockedComment
+                  key={comment.id} />
                 ) : (
                 <Comment
                   key={comment.id}

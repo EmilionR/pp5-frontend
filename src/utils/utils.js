@@ -85,13 +85,13 @@ export const friendHelper = (profile, clickedProfile, friend_id) => {
       }
     : profile.is_owner
     ? { ...profile }
-    : // user cannot block self, return unchanged
+    : // user cannot friend self, return unchanged
       profile;
 };
 
 export const unfriendHelper = (profile, clickedProfile) => {
   return profile.id === clickedProfile.id
-    ? // update the block count of this profile and set its block id
+    ? // update the friend count of this profile and set its block id
       {
         ...profile,
         friend_id: null,

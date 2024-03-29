@@ -21,13 +21,19 @@ function PostList({ message, filter = "" }) {
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
   const [blocks, setBlocks] = React.useState([]);
+  const [friends, setFriends] = React.useState([]);
 
   useEffect(() => {
 
-    const blockList = async () => {
+    const fetchData = async () => {
       try {
-        const { data } = await axiosReq.get("/blocks/");
-        setBlocks(data.results);
+        const [{ data: friends }, { data: blocks }] =
+        await Promise.all([
+          axiosReq.get(`/friends/`),
+          axiosReq.get("/blocks/"),
+        ]);
+        setFriends(friends.results);
+        setBlocks(blocks.results);
       } catch (error) {
         console.log(error);
       }
@@ -48,7 +54,7 @@ function PostList({ message, filter = "" }) {
     // Fetch posts after half a second
     const timer = setTimeout(() => {
       fetchPosts();
-      blockList();
+      fetchData();
     }, 500);
     // Clear timer
     return () => clearTimeout(timer);
