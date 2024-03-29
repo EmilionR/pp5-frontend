@@ -23,15 +23,15 @@ function App() {
   const [notifications, setNotifications] = useState([]);
   let toastProps = null;
 
-  const showToast = (message) => {
+  const showToast = (toastTitle, toastMessage) => {
     toastProps = {
-      id: 1,
-      title: 'Notification',
-      message: message,
+      id: notifications.length + 1,
+      title: toastTitle,
+      message: toastMessage,
       backgroundColor: "#fafafa"
     }
-    setNotifications([toastProps]);
-
+    setNotifications([...notifications, toastProps]);
+    console.log(toastProps)
   }
 
   return (
@@ -43,7 +43,10 @@ function App() {
             exact
             path="/"
             render={() => (
-              <PostList message="No results found. Please change your search term." />
+              <PostList
+              message="No results found. Please change your search term."
+              showToast={showToast}
+              />
             )}
           />
           <Route
@@ -53,6 +56,7 @@ function App() {
               <PostList
                 message="No results found. Please change your search term or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
+                showToast={showToast}
               />
             )}
           />
@@ -63,34 +67,35 @@ function App() {
               <PostList
                 message="No results found. Please change your search term or like a post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_on&`}
+                showToast={showToast}
               />
             )}
           />
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
-          <Route exact path="/posts/:id" render={() => <PostPage />} />
-          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/signin" render={() => <SignInForm showToast={showToast} />} />
+          <Route exact path="/signup" render={() => <SignUpForm showToast={showToast} />} />
+          <Route exact path="/posts/create" render={() => <PostCreateForm showToast={showToast} />} />
+          <Route exact path="/posts/:id" render={() => <PostPage showToast={showToast} />} />
+          <Route exact path="/posts/:id/edit" render={() => <PostEditForm showToast={showToast} />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage showToast={showToast} />} />
           <Route
             exact
             path="/profiles/:id/edit/username"
-            render={() => <UsernameForm />}
+            render={() => <UsernameForm showToast={showToast} />}
           />
           <Route
             exact
             path="/profiles/:id/edit/password"
-            render={() => <UserPasswordForm />}
+            render={() => <UserPasswordForm showToast={showToast} />}
           />
           <Route
             exact
             path="/profiles/:id/edit"
-            render={() => <ProfileEditForm />}
+            render={() => <ProfileEditForm showToast={showToast} />}
           />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
-      <Toast toastList={notifications} position="top-right" />
+      <Toast toastList={notifications} position="top-right" setList={setNotifications} />
     </div>
   );
 }
