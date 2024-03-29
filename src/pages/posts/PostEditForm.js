@@ -14,7 +14,7 @@ import styles from "../../styles/PostingForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-function PostEditForm() {
+function PostEditForm({showToast}) {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -59,7 +59,6 @@ function PostEditForm() {
     });
   };
   
-
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -84,6 +83,7 @@ function PostEditForm() {
 
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
+      showToast("Success!", "Post edited.")
       history.push(`/posts/${id}`);
     } catch (err) {
       console.log(err);
