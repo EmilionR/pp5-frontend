@@ -190,7 +190,7 @@ function ProfilePage() {
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
             post.friends_only && !profile.friend_id ? (
-              post.friends_only
+              null
             ) : (
               <Post key={post.id} {...post} setPosts={setProfilePosts} />
             ) 

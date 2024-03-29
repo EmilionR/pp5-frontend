@@ -14,6 +14,7 @@ import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = React.useState({ results: [] });
@@ -22,6 +23,7 @@ function PostList({ message, filter = "" }) {
   const [query, setQuery] = useState("");
   const [blocks, setBlocks] = React.useState([]);
   const [friends, setFriends] = React.useState([]);
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
 
@@ -48,6 +50,7 @@ function PostList({ message, filter = "" }) {
         console.log(err);
       }
     };
+    
 
     // Reset hasLoaded to false
     setHasLoaded(false);
@@ -59,6 +62,10 @@ function PostList({ message, filter = "" }) {
     // Clear timer
     return () => clearTimeout(timer);
   }, [filter, query, pathname]);
+
+  console.log(posts.results);
+  console.log(friends);
+  console.log(currentUser);
 
   return (
     <Row className="h-100">
@@ -86,8 +93,17 @@ function PostList({ message, filter = "" }) {
             {posts.results.length ? (
               <InfiniteScroll
                 children={posts.results.map((post) =>
+                  // If the current user is blocked by the post owner
                   blocks.some(block => block.target === post.profile_id) ? null : (
-                    <Post key={post.id} {...post} setPosts={setPosts} />
+                  // If the post is friends-only and the current user is not signed in
+                  post.friends_only && !currentUser ? (
+                      null
+                      // If the post is friends-only and the user is not the post owner or friends with the post owner
+                    ) : post.friends_only && post.owner !== currentUser.username && !friends.some(pair => pair.friend === currentUser.pk) ? (
+                      null
+                    ) : (
+                      <Post key={post.id} {...post} setPosts={setPosts} />
+                    ) 
                   )
                 )}
                 dataLength={posts.results.length}
