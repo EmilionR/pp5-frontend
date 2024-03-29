@@ -1,0 +1,10 @@
+.Container {
+    font-size: 14px;
+    position: fixed;
+    z-index: 99;
+}
+
+.top-right {
+    top: 2rem;
+    right: 2rem;
+}

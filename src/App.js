@@ -14,10 +14,25 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import Toast from "./components/Toast";
+import { useState } from "react";
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+  const [notifications, setNotifications] = useState([]);
+  let toastProps = null;
+
+  const showToast = (message) => {
+    toastProps = {
+      id: 1,
+      title: 'Notification',
+      message: message,
+      backgroundColor: "#fafafa"
+    }
+    setNotifications([toastProps]);
+
+  }
 
   return (
     <div className={styles.App}>
@@ -75,6 +90,7 @@ function App() {
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
       </Container>
+      <Toast toastList={notifications} position="top-right" />
     </div>
   );
 }
