@@ -47,6 +47,7 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
 
   const [myFollowers, setMyFollowers] = useState([]);
+  const [friends, setFriends] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,17 +56,19 @@ function ProfilePage() {
           { data: pageProfile },
           { data: profilePosts },
           { data: followerData },
+          { data: friendData },
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/posts/?owner__profile=${id}`),
           axiosReq.get("/followers/"),
+          axiosReq.get("/friends/"),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
-
+        setFriends(friendData.results);
         // Filter followers and friends
         const filteredFollowers = followerData.results.filter(
           (follow) => follow.followed === currentUser?.pk
@@ -189,7 +192,14 @@ function ProfilePage() {
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
-            post.friends_only && !profile.friend_id ? (
+            post.friends_only && !currentUser ? (
+              null
+            )
+            : post.friends_only && !friends.some(
+              (pair) =>
+                pair.owner === post.owner &&
+                pair.friend === currentUser.pk
+            ) ? (
               null
             ) : (
               <Post key={post.id} {...post} setPosts={setProfilePosts} />

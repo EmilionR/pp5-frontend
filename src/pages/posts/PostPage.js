@@ -31,28 +31,19 @@ function PostPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [ { data: post }, { data: comments } ] = await Promise.all([
+        const [ { data: post }, { data: comments }, {data: blockData} ] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
+          axiosReq.get("/blocks/"),
         ]);
         setPost({ results: [post] });
         setComments(comments);
+        setBlocks(blockData.results);
       } catch (err) {
         console.log(err);
       }
     };
-
-    const blockList = async () => {
-      try {
-        const { data } = await axiosReq.get("/blocks/");
-        setBlocks(data.results);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     handleMount();
-    blockList();
   }, [id]);
 
   return (

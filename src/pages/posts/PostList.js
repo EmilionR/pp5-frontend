@@ -26,11 +26,9 @@ function PostList({ message, filter = "" }) {
   const currentUser = useCurrentUser();
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
-        const [{ data: friends }, { data: blocks }] =
-        await Promise.all([
+        const [{ data: friends }, { data: blocks }] = await Promise.all([
           axiosReq.get(`/friends/`),
           axiosReq.get("/blocks/"),
         ]);
@@ -50,7 +48,6 @@ function PostList({ message, filter = "" }) {
         console.log(err);
       }
     };
-    
 
     // Reset hasLoaded to false
     setHasLoaded(false);
@@ -94,16 +91,21 @@ function PostList({ message, filter = "" }) {
               <InfiniteScroll
                 children={posts.results.map((post) =>
                   // If the current user is blocked by the post owner
-                  blocks.some(block => block.target === post.profile_id) ? null : (
+                  blocks.some(
+                    (block) => block.target === post.profile_id
+                  ) ? null :
                   // If the post is friends-only and the current user is not signed in
-                  post.friends_only && !currentUser ? (
-                      null
-                      // If the post is friends-only and the user is not the post owner or friends with the post owner
-                    ) : post.friends_only && post.owner !== currentUser.username && !friends.some(pair => pair.friend === currentUser.pk) ? (
-                      null
-                    ) : (
-                      <Post key={post.id} {...post} setPosts={setPosts} />
-                    ) 
+                  post.friends_only &&
+                    !currentUser ? null :
+                  // If the post is friends-only and the user is not the post owner or friends with the post owner
+                  post.friends_only &&
+                    post.owner !== currentUser.username &&
+                    !friends.some(
+                      (pair) =>
+                        pair.owner === post.owner &&
+                        pair.friend === currentUser.pk
+                    ) ? null : (
+                    <Post key={post.id} {...post} setPosts={setPosts} />
                   )
                 )}
                 dataLength={posts.results.length}
