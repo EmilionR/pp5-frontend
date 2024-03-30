@@ -18,6 +18,7 @@ const Comment = (props) => {
     id,
     setPost,
     setComments,
+    showToast,
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
@@ -41,6 +42,7 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
+      showToast("Success!", "Your comment has been deleted.")
     } catch (err) {}
   };
 
@@ -62,6 +64,7 @@ const Comment = (props) => {
               profileImage={profile_image}
               setComments={setComments}
               setShowEditForm={setShowEditForm}
+              showToast={showToast}
             />
           ) : (
             <p>{content}</p>

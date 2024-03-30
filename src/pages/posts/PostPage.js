@@ -59,6 +59,7 @@ function PostPage({showToast}) {
               post={id}
               setPost={setPost}
               setComments={setComments}
+              showToast={showToast}
             />
           ) : comments.results.length ? (
             "Comments"
@@ -78,6 +79,7 @@ function PostPage({showToast}) {
                   {...comment}
                   setPost={setPost}
                   setComments={setComments}
+                  showToast={showToast}
                 />
                 )
               ))}

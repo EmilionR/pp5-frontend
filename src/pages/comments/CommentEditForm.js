@@ -8,7 +8,7 @@ import styles from "../../styles/CommentForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 function CommentEditForm(props) {
-  const { id, content, setShowEditForm, setComments } = props;
+  const { id, content, setShowEditForm, setComments, showToast } = props;
 
   const [formContent, setFormContent] = useState(content);
 
@@ -34,6 +34,7 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      showToast("Success!", "Your comment has been updated.");
       setShowEditForm(false);
     } catch (err) {
       console.log(err);

@@ -10,7 +10,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const { post, setPost, setComments, profileImage, profile_id, showToast } = props;
   const [content, setContent] = useState("");
 
   // Update the content state when the user types in the textarea
@@ -31,7 +31,8 @@ function CommentCreateForm(props) {
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
-      }));
+      }
+      ));
       // Update the post state to increment the comment_count
       setPost((prevPost) => ({
         results: [
@@ -41,6 +42,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      showToast("Success!", "Your comment has been posted.");
       setContent("");
     } catch (err) {
       console.log(err);
