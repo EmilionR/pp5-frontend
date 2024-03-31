@@ -10,15 +10,12 @@
 * [Manual Testing](#manual-testing)
   * [Site Navigation](#site-navigation)
   * [Home Page](#home-page)
-    * [Post Form](#post-form)
   * [Post Detail](#post-detail)
     * [Comment Form](#comment-form)
-    * [Comment](#comment)
-  * [Editing Page](#editing-page)
+    * [Comments](#comments)
+  * [Post Form](#post-form)
   * [Profile Page](#profile-page)
-    * [Edit Profile Form](#edit-profile-form)
-  * [Django AllAuth Pages](#django-allauth-pages)
-  * [Error Pages](#error-pages)
+  * [Sign In/Up Pages](#sign-inup-pages)
 
 [Back to README](README.md)
 
@@ -30,8 +27,7 @@ EPIC - Navigation
 
 | Goals | How are they achieved? |
 | --- | --- |
-|  |  |
-|  |  |
+
 
 EPIC - Authentication
 
@@ -200,17 +196,24 @@ __Device Testing__
 |  |  |  |  |
 |  |  |  |  |
 
-### Post List
-| Feature | Action | Expected Outcome | Pass/Fail |
-| --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-
 ### Post Detail
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
 |  |  |  |  |
 |  |  |  |  |
+
+#### Comment Form
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+#### Comments
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
 
 ### Post Form
 | Feature | Action | Expected Outcome | Pass/Fail |
@@ -225,12 +228,6 @@ __Device Testing__
 |  |  |  |  |
 
 ### Sign In/Up Pages
-| Feature | Action | Expected Outcome | Pass/Fail |
-| --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-
-### Error Page
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
 |  |  |  |  |
