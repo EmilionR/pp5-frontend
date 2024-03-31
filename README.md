@@ -98,6 +98,7 @@ Below the main profile section, you can see all posts made by the profile owner.
 #### Register/Login Page:
 ![Login page]()
 
+The register page lets user create a new user without any hassle. Upon registration, the user is redirected to the sign-in page. If a signed-in user somehow navigates to either of these pages, they are redirected to the home page.
 
 ### Future Implementations:
 
