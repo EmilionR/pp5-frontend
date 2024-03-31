@@ -193,7 +193,9 @@ EPIC - Friends
 
 ### Color Scheme
 
-![Color Palette](documentation/color-palette.png)
+![Color Scheme](documentation/color-scheme.png)
+
+I went with a mellow blue color scheme for the app design. I wanted something that's subtle and consistent but still more interesting than grayscale.
 
 ### Wireframes
 
@@ -204,16 +206,15 @@ EPIC - Friends
 ![Wireframe](documentation/wf-profile-mobile.png)
 
 ![Wireframe](documentation/wf-feed-desktop.png)
-
 ![Wireframe](documentation/wf-profile-desktop.png)
 </details>
 
-
-
 ### Accessibility
 
+To help with accessibility, I have made use of aria features such as aria-label and aria-hidden to help screen readers give correct information. I have also used icons for most user interactions to make it easier for users who struggle with reading.
 
 ### Agile Methodology
+
 
 
 ### Data Model
