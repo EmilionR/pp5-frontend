@@ -5,8 +5,13 @@
 
 .NavLink {
     padding: 5px;
+    white-space: nowrap;
 }
 
 .Active i {
     color: #7777dd;
+}
+
+.Conatiner {
+    max-height: 75px;
 }
