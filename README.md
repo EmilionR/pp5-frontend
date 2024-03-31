@@ -112,17 +112,25 @@ Future iterations of the project will include more user pages. Users will have a
 
 ### Defensive Design Features
 
-
-* Authentication checks
-  * 
+* Authorization checks
+  * There are multiple layers of authorization, using JWT tokens and CORS headers to grant access to the selected client
+  * The app checks for auth status wherever it's relevant
+  * Unauthorized users are redirected away from pages that require authorization
+  * Sensitive operations check the authorized user's owner status
+  * The app always checks for auth status before trying to access anything related to user data
 
 * Form validation
-  * 
+  * Submitted data is validated on both the frontend and the backend
+  * Any invalid data sent to the backend is rejected and throws an error
+  * Image file size is restricted using a custom validator
+  * Model fields that can be manipulated have default values and restrictions such as maximum character count
 
 * Backup and default values
-  * 
+  * Profile images have a default value to prevent broken image elements
+  * Profiles are automatically created when users are created, to prevent any risk of null references
 
 * Error pages
+  * A "page not found" appears whenever a user tries to access an invalid URL
 
 ## User Experience
 
