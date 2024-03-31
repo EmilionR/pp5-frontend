@@ -195,7 +195,7 @@ I used Lighthouse to test all pages. Performance results were quite low, but thi
 
 ### Custom Automated Testing
 
-
+In addition to the various validators and automated tests above, I created some automated tests to test my code. Most of these tests check models, serializers, and validators used on the backend.
 
 ## Manual Testing
 
@@ -221,8 +221,23 @@ __Device Testing__
 
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| Navbar Logo | Hover/Focus | Indicate focus | Pass |
+| Navbar Logo | Click | Redirect to home | Pass |
+| Navbar toggler | Display | Visible on small screens only | Pass |
+| Navbar toggler | Click | Opens dropdown with navigation links | Pass |
+| Following Link | Display | Only display when user is signed in | Pass |
+| Following Link | Click | Open following feed page | Pass |
+| Liked Link | Display | Only display when user is signed in | Pass |
+| Liked Link | Click | Open liked posts feed page | Pass |
+| Navbar Links | Display | Links display in header on screens above a certain size | Pass |
+| Profile Link | Display | Only display when user is signed in | Pass |
+| Profile Link | Click | Open profile page | Pass |
+| Register Link | Display | Only display when user is not signed in | Pass |
+| Register Link | Click | Open signup page | Pass |
+| Log-in Link | Display | Only display when user is not signed in | Pass |
+| Log-in Link | Click | Open login page | Pass |
+| Log-out Link | Display | Only display when user is signed in | Pass |
+| Log-out Link | Click | Log the user out | Pass |
 
 ### Home Page
 | Feature | Action | Expected Outcome | Pass/Fail |
