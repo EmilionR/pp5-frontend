@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
 import { useProfileData } from "../../contexts/ProfileDataContext";
+import styles from "../../styles/PopularProfiles.module.css";
 
 const PopularProfiles = ({ mobile }) => {
   
@@ -13,7 +14,7 @@ const PopularProfiles = ({ mobile }) => {
   return (
     <Container
       className={`pb-2 ${appStyles.Content} ${
-        mobile && "d-lg-none text-center mb-2"
+        mobile && "d-lg-none text-center mb-2 px-0"
       }`}
     >
       {/* Check if there are popular profiles to display */}
@@ -21,8 +22,8 @@ const PopularProfiles = ({ mobile }) => {
         <>
           <h4 className="pt-2">Most popular profiles</h4>
           {mobile ? (
-            <div className="d-flex flex-wrap g-2 justify-content-around">
-              {popularProfiles.results.slice(0, 5).map((profile) => (
+            <div className={`${styles.MobileProfiles}`}>
+              {popularProfiles.results.slice(0, 6).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
