@@ -79,6 +79,15 @@ function PostList({ message, showToast, filter = "" }) {
           />
         </Form>
 
+        {/* New post button */}
+        {currentUser && (
+          <div className={styles.NewPostButton}>
+            <a href="posts/create">
+              <i className="fas fa-plus-square"></i>New post
+            </a>
+          </div>
+        )}
+
         {/* Posts */}
         {hasLoaded ? (
           <>
@@ -88,11 +97,9 @@ function PostList({ message, showToast, filter = "" }) {
                   // If the current user is blocked by the post owner
                   blocks.some(
                     (block) => block.target === post.profile_id
-                  ) ? null :
-                  // If the post is friends-only and the current user is not signed in
+                  ) ? null : // If the post is friends-only and the current user is not signed in
                   post.friends_only &&
-                    !currentUser ? null :
-                  // If the post is friends-only and the user is not the post owner or friends with the post owner
+                    !currentUser ? null : // If the post is friends-only and the user is not the post owner or friends with the post owner
                   post.friends_only &&
                     post.owner !== currentUser.username &&
                     !friends.some(
