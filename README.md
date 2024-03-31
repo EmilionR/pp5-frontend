@@ -17,6 +17,7 @@ Users can also create personal feeds by following other users and liking posts. 
     * [Post Page](#post-page)
     * [Profile Page](#profile-page)
     * [Register/Login page](#registerlogin-page)
+    * [Post Report](#post-report)
   * [Future Implementations](#future-implementations)
   * [Defensive Design Feaures](#defensive-design-features)
 
@@ -99,6 +100,11 @@ Below the main profile section, you can see all posts made by the profile owner.
 ![Login page]()
 
 The register page lets user create a new user without any hassle. Upon registration, the user is redirected to the sign-in page. If a signed-in user somehow navigates to either of these pages, they are redirected to the home page.
+
+#### Post Report
+![Post Report]()
+
+Signed-in users can see a "report" button on posts in the post list and on the post page. Clicking the button opens a report form where they can state the reason for reporting the post. When a report is submitted, it appears on the admin page to let admins quickly find potentially illicit/offensive content.
 
 ### Future Implementations:
 
