@@ -26,7 +26,7 @@ Users can also create personal feeds by following other users and liking posts. 
 
 * [Design](#Design)
   * [Color Scheme](#color-scheme)
-  * [Typography](#color-scheme)
+  * [Typography](#typography)
   * [Wireframes](#wireframes)
   * [Accessibility](#Accessibility)
   * [Agile Methodology](#agile-methodology)
@@ -264,9 +264,9 @@ GNU Image Manipulation Program - Cropping and scaling images for faster load tim
 
 Figma - Wireframing
 
-Lucidchart - ERD design
+dBeaver - ERD design
 
-Multi Device Webiste Mockup Generator - For testing how the site looks on different devices.
+AmIResponsive - For testing how the site looks on different devices.
 
 WAVE Evaluation Tool - To check accessibility.
 
@@ -354,7 +354,7 @@ My custom toast notification system is inspired by [React-Toastify](https://www.
 
 ### Acknowledgments
 
-Jonathan Zakrisson & Paulo Arbeláez - help with troubleshooting early connection issues.
+Jonathan Zakrisson - help with troubleshooting early connection issues.
 
 Erik Jädersten & Nichamolkan Gjertz - additional user experience testing and moral support
 
