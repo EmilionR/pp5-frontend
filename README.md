@@ -215,9 +215,12 @@ To help with accessibility, I have made use of aria features such as aria-label 
 
 ### Agile Methodology
 
+I implemented the Agile method for my project by defining the epics seen earlier in the document and breaking them into smaller user stories. I then made issues for each epic and user story and assigned each epic to a milestone, connecting each user story issue to its associated epic milestone.
 
+To keep track of the user stories and tasks, I used a Kanban board. All of this can be seen by clicking to the 'Issues' and 'Projects' tabs of this repository.
 
 ### Data Model
+
 
 
 ## Technologies Used
