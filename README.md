@@ -277,15 +277,10 @@ Web Disability Simulator - To check accessibility.
 
 To deploy the project to Heroku, I took the following steps.
 
-__Requirements and Procfile__
+__Project Settings:__
 
-In order to deploy the project, Heroku needs information about the technologies used. Before deployment, I create a Procfile and a list of requirements. In some cases, you may also need a runtime.txt file specifying the version of Python to use.
-
-* Create a plain file called Procfile without any file suffix, at the root level of the project.
-* Type ```web: gunicorn fooroom.wsgi:application``` into the Procfile and save.
-* In your IDE terminal, type ```pip3 freeze local > requirements.txt``` to create the requirements.
-* (Optional) Create a runtime.txt and type ```python-3.12.1``` (or whichever version you use)
-* Commit and push these files to the project repository.
+* Go to the axiosDefaults.js file and locate the baseUrl variable.
+* Copy the URL from your API and paste it as the value of the baseUrl variable, and make sure that it's within quotation marks.
 
 __Create the Heroku app:__
 
@@ -295,33 +290,13 @@ __Create the Heroku app:__
 * Choose your region from the dropdown menu.
 * Click the "Create app" button.
 
-__Heroku Settings:__
-
-For Heroku to be able to process and render the project, you must define some environment variables.
-Deploying the project without these is like trying to start a car without the key.
-
-* Go to the settings page of your new app
-* Scroll down and open the Config Vars
-* Add a DATABASE_URL variable and assign it a link to your database
-* Add a SECRET_KEY variable and assign it a secret key of your choice
-* Add a CLOUDINARY_URL variable and assign it a link to your Cloudinary
-
-__Project Settings:__
-
-It's important that the environment variables and settings in the django project are compatible with the settings on heroku. These are the steps to ensure a proper setup.
-
-* Include ```https://<your_app_name>.herokuapp.com``` in the ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS lists inside the settings.py file.
-* Make sure that the environment variables (DATABASE_URL, SECRET_KEY, and CLOUDINARY_URL) are correctly set to ```os.environ.get("<variable_name>")```
-* If making changes to static files or apps, make sure to run collectstatic or migrate as needed.
-* Commit and push to the repository.
-
 __Connect the repository__
 
 Once your Heroku settings and GitHub repository are up to date, it's time to connect the two.
 
 * Go to the Deploy tab of your Heroku app.
 * Find the "Deployment method" section and click GitHub.
-* Type in the name of your repository to search for it
+* Type in the name of your GitHub repository to search for it
 * Click 'Connect' to connect the repository
 * (Optional) Enable automatic deployment to automatically update the Heroku app whenever you push to GitHub
 
@@ -338,13 +313,13 @@ Now, all that's left to do is to deploy and open the app.
 __How to Fork the Repository__
 
 1. Log in (or sign up) to GitHub.
-2. Go to the repository for this project, [EmilionR/django-pp4](https://github.com/EmilionR/django-pp4)
+2. Go to the repository for this project, [EmilionR/pp5-frontend](https://github.com/EmilionR/pp5-frontend)
 3. Click the Fork button in the top right corner.
 
 __How to Clone the Repository__
 
 1. Log in (or sign up) to GitHub.
-2. Go to the repository for this project, [EmilionR/django-pp4](https://github.com/EmilionR/django-pp4)
+2. Go to the repository for this project, [EmilionR/pp5-frontend](https://github.com/EmilionR/pp5-frontend)
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
