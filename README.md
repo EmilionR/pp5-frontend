@@ -28,9 +28,9 @@ Users can also create personal feeds by following other users and liking posts. 
   * [Color Scheme](#color-scheme)
   * [Typography](#typography)
   * [Wireframes](#wireframes)
+  * [Reusable Component Design](#reusable-component-design)
   * [Accessibility](#Accessibility)
   * [Agile Methodology](#agile-methodology)
-  * [Data Model](#data-model)
 
 * [Technologies Used](#Technologies-Used)
   * [Languages Used](#Languages-Used)
@@ -213,6 +213,64 @@ For this app, I wanted something linear and punchy. I also wanted something that
 ![Wireframe](documentation/wf-feed-desktop.png)
 ![Wireframe](documentation/wf-profile-desktop.png)
 </details>
+
+### Reusable Component Design
+
+This application was built with modularity and reusability in mind. Components are meant to work on their own and be easy to take out of their context and use elsewhere. Some components are used in multiple places across the app, with more potential uses within reach.
+
+__Post__
+Purpose: Display a specific post.
+Props:
+* ```id```
+* ```title```
+* ```content```
+* ```owner```
+* more...
+Used in: Post feed, Post detail page, Profile page.
+Potential uses: Could be used for a "featured post" component or a list of the most popular posts of all time.
+
+__Comment__
+Purpose: Display a specific comment.
+Props:
+* ```id```
+* ```content```
+* ```owner```
+* more...
+Used in: Post detail page
+Potential uses: The comment component could be easily reused on profile pages to display all comments made by a specific user.
+
+__Profile__
+Purpose: Display a specific profile.
+Props:
+* ```profile```
+* ```owner```
+* ```image```
+Used in: Post feed, Post detail page, Profile page.
+Potential uses: Highly reusable, convenient to use anywhere where you need to show the profile/user associated with a piece of content.
+
+__Avatar__
+Purpose: Display a profile avatar.
+Props:
+* ```profile```
+* ```owner```
+* ```image```
+Used in: Post feed, Post detail page, Profile page, NavBar.
+Potential uses: Highly reusable, convenient to use anywhere where you need to show the avatar associated with a profile.
+
+__Asset__
+Purpose: Display a media asset.
+Props:
+* ```src```
+* ```message```
+* ```spinner```
+Used in: Post feed, Post detail page, Profile page, NavBar.
+Potential uses: Highly reusable, handy for displaying static images, loading animations, and more.
+
+__NavBar__
+Purpose: Supply navigation links across the site.
+Props: None
+Used in: Everywhere.
+Potential uses: Could be fitted onto a completely different app with small routing adjustments.
 
 ### Accessibility
 
