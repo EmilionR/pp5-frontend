@@ -89,6 +89,11 @@ Signed-in users can also edit or delete any post they own from its post page.
 #### Profile Page:
 ![Profile page]()
 
+The profile page displays information about the associated user. For example, you can see how many posts they've made, how many followers they have, and how many profiles they're following. If the user is your follower, you see a line about that as well. There's also an information section where the user can add their own information.
+
+Next to this section, a signed-in user can see buttons for following and blocking the profile owner, unless the profile belongs to the signed-in user. If the profile owner is a follower of the signed-in user, there's also a button for marking the profile owner as a friend.
+
+Below the main profile section, you can see all posts made by the profile owner.
 
 #### Register/Login Page:
 ![Login page]()
