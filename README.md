@@ -227,13 +227,15 @@ To keep track of the user stories and tasks, I used a Kanban board. All of this 
 
 ### Languages Used
 
-Python, HTML, CSS, and JavaScript.
+JavaScript, Python, JSX, HTML, CSS.
 
 ### Frameworks & Libraries Used
 
 Django REST - The framework used for building the backend API
 
 React - The main framework, used for building the frontend application
+
+PostgreSQL - Used for the database schema
 
 Bootstrap - Used for more efficient styling and scripting
 
@@ -253,7 +255,7 @@ Heroku - For live site deployment
 
 AWS - Hosting the database
 
-Cloudinary - Hosting the profile images
+Cloudinary - Hosting the images
 
 Google & Mozilla Developer Tools - For debugging and trying out design improvements on the fly.
 
@@ -268,8 +270,6 @@ Multi Device Webiste Mockup Generator - For testing how the site looks on differ
 WAVE Evaluation Tool - To check accessibility.
 
 Web Disability Simulator - To check accessibility.
-
-realfavicongenerator.net/ - For the Favicon
 
 ## Deployment
 
