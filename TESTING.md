@@ -90,3 +90,50 @@ EPIC - Block Unwanted Content
 |  |  |
 
 EPIC - Friends
+
+## Validator Testing
+
+### Python
+
+All Python files were run validated with pep8 and cleaned until no errors were found.
+
+<details>
+<summary>Python validation results</summary>
+
+![Python validation](documentation/pep8.png)
+</details>
+
+### JSX
+
+All JSX files were validated with ????.
+
+<details>
+<summary>JavaScript validation results</summary>
+
+![JavaScript validation](documentation/jshint.png)
+</details>
+
+### HTML
+
+I validated my HTML pages using the W3 Nu HTML Checker. You can check the results for each page below.
+
+[Home page]()
+
+[Post page]()
+
+[Profile]()
+
+[Signup page]()
+
+[Login]()
+
+[Logout]()
+
+### CSS
+
+I validated my CSS with the Jigsaw CSS validator.
+
+[CSS results]()
+
+
+[Back to README](README.md)
