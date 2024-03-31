@@ -45,7 +45,6 @@ Users can also create personal feeds by following other users and liking posts. 
   * [Unfixed Bugs](#unfixed-bugs)
   
 * [Credits](#Credits)
-  * [Media](#Media)
   * [Tutorials & Code Used](#tutorials--code-used)
 
 ## Features
@@ -345,10 +344,9 @@ Please refer to [TESTING.md](TESTING.md) for full testing documentation.
 
 ## Credits
 
-
-### Media
-
-
 ### Tutorials & Code Used
 
-Code Institute Advanced Frontend course
+The project is based on the Code Institute Advanced Frontend course material.
+
+My custom toast notification system is inspired by [React-Toastify](https://www.npmjs.com/package/react-toastify).
+
