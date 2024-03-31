@@ -151,7 +151,7 @@ function ProfilePage() {
               Follows you<i className="fas fa-check"></i>
             </span>
           ) : null}
-          <Row className="justify-content-center no-gutters">
+          <Row className="justify-content-between no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.post_count}</div>
               <div>Posts</div>
