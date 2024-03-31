@@ -11,14 +11,17 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
-import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, Modal } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
@@ -50,6 +53,7 @@ function ProfilePage() {
 
   const [myFollowers, setMyFollowers] = useState([]);
   const [friends, setFriends] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,12 +87,10 @@ function ProfilePage() {
       }
     };
     fetchData();
-
   }, [id, setProfileData, currentUser]);
 
   const handleDelete = async () => {
     try {
-      console.log("Deleting profile")
       axios.post("dj-rest-auth/logout/");
       await axiosReq.delete(`/profiles/${id}/`);
       setCurrentUser(null);
@@ -96,11 +98,42 @@ function ProfilePage() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+
+  const toggleDeleteModal = () => {
+    setShowModal(!showModal);
+  };
 
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} handleDelete={handleDelete} />}
+      {profile?.is_owner && (
+        <>
+          <ProfileEditDropdown id={profile?.id} deleteHandler={toggleDeleteModal} />
+          <div className={styles.DeleteModal}>
+           
+              <Modal.Dialog>
+              <Modal show={showModal}>
+                <Modal.Header>
+                  <Modal.Title>Delete account?</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                  <p>This will permanently delete your account.</p>
+                </Modal.Body>
+
+                <Modal.Footer>
+                  <Button className={`${btnStyles.Button} ${btnStyles.Black}`} onClick={toggleDeleteModal}>
+                    Cancel
+                  </Button>
+                  <Button className={`${btnStyles.Button} ${btnStyles.Black}`} onClick={handleDelete}>
+                    Delete
+                  </Button>
+                </Modal.Footer>
+                </Modal>
+              </Modal.Dialog>
+          </div>
+        </>
+      )}
       <Row noGutters className="p-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -134,25 +167,27 @@ function ProfilePage() {
           </Row>
         </Col>
         <Col lg={3} className="mt-3 d-flex flex-lg-column">
-
           {/* Display friend/unfriend button only if the profile owner is following the current user */}
           {currentUser &&
           myFollowers.some((follow) => follow.owner === profile?.owner) ? (
             profile.friend_id ? (
               <Button
-              className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
-              onClick={() => {handleUnfriend(profile)}}
-            >
-              Unfriend
-            </Button>
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline} m-1`}
+                onClick={() => {
+                  handleUnfriend(profile);
+                }}
+              >
+                Unfriend
+              </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black} m-1`}
-                onClick={() => {handleFriend(profile)}}
+                onClick={() => {
+                  handleFriend(profile);
+                }}
               >
                 Friend
               </Button>
-            
             )
           ) : null}
 
@@ -205,20 +240,15 @@ function ProfilePage() {
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-          children={profilePosts.results.map((post) => (
-            post.friends_only && !currentUser ? (
-              null
-            )
-            : post.friends_only && !friends.some(
-              (pair) =>
-                pair.owner === post.owner &&
-                pair.friend === currentUser.pk
-            ) ? (
-              null
-            ) : (
+          children={profilePosts.results.map((post) =>
+            post.friends_only && !currentUser ? null : post.friends_only &&
+              !friends.some(
+                (pair) =>
+                  pair.owner === post.owner && pair.friend === currentUser.pk
+              ) ? null : (
               <Post key={post.id} {...post} setPosts={setProfilePosts} />
-            ) 
-          ))}
+            )
+          )}
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}
           hasMore={!!profilePosts.next}

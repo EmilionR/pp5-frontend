@@ -42,7 +42,7 @@ export const OptionsDropdown = ({ handleEdit, handleDelete, showToast }) => {
   );
 };
 
-export function ProfileEditDropdown({ id, handleDelete }) {
+export function ProfileEditDropdown({ id, deleteHandler }) {
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
@@ -69,7 +69,7 @@ export function ProfileEditDropdown({ id, handleDelete }) {
           Change password
         </Dropdown.Item>
         <Dropdown.Item
-          onClick={handleDelete}
+          onClick={deleteHandler}
           aria-label="Delete this account"
         >
           <i className="fas fa-user-slash" />
