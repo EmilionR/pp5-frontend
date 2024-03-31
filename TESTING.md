@@ -21,17 +21,13 @@
 
 ## User Story Testing
 
-### EPIC | User Profile
-
 __EPIC - Navigation__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a user I can see a navigation menu on every page so that I can navigate with ease | The navigation bar is omnipresent |
 | As a user I can navigate easily through pages so that I can browse the site without reloading the page | All navigation links open compoents without refreshing the browser |
 
 __EPIC - Authentication__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a user I can create an account so that I can access member-only features | Users can create accounts |
@@ -40,7 +36,6 @@ __EPIC - Authentication__
 | As a user I can stay logged-in until I choose to log out so that I can have a smooth experience | Auth tokens refresh automatically to keep the user signed in |
 
 __EPIC - Posting__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a signed-in user I can create new posts so that I can show my images to other users | The post create form lets users create new posts |
@@ -49,7 +44,6 @@ __EPIC - Posting__
 
 
 __EPIC - Browsing__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content | Posts appear in the food sorted by time of creation in descending order |
@@ -59,7 +53,6 @@ __EPIC - Browsing__
 | As a user I can keep scrolling down the page to load more posts automatically so that I have a smooth experience | New posts are loaded as the user scrolls down |
 
 __EPIC - Comments__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a user I can view comments on posts so that I can read other users' thoughts about the post | Comments appear under the associated post |
@@ -68,7 +61,6 @@ __EPIC - Comments__
 | As the owner of a comment I can edit the comment so that I can update comments and fix errors | Comments have an editing form accessible to the comment owner |
 
 __EPIC - Like Posts__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a signed-in user I can like posts so that I can show my what content I like | Each post has a like button with a likes count display |
@@ -76,7 +68,6 @@ __EPIC - Like Posts__
 | As a signed-in user I can view a feed of only my liked posts so that I can look at my favorite content | There's a special feed for liekd posts |
 
 __EPIC - Follow Users__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a signed-in user I can follow users so that I can support users who post interesting content | Each profile has a follow button visible to signed-in users |
@@ -84,7 +75,6 @@ __EPIC - Follow Users__
 | As a signed-in user I can unfollow my followed users so that I can remove their posts from my feed | When following a user, the follow button becomes an unfollow button |
 
 __EPIC - User Profile__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a user I can view the profiles of other users so that I can see their content and profile information | Each profile has a public profile page |
@@ -95,14 +85,12 @@ __EPIC - User Profile__
 | As a signed-in user I can change my username and password so that I have control over my account | Menu options for editing the username and password appear to the profile owner |
 
 __EPIC - Block Unwanted Content__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As a signed-in user I can block another user so that I do not have to see their posts | Users can block other users from their profile pages |
 | As a signed-in user I can report a post so that inappropriate content can be moderated | Each post by other users has a report button available to a signed-in user |
 
 __EPIC - Friends__
-
 | Goals | How are they achieved? |
 | --- | --- |
 | As an authenticated user I can add followers to a list of friends so that I can have an inner circle of selected followers | A friend button is available on the profile pages of followers |
@@ -170,7 +158,6 @@ I validated my CSS with the Jigsaw CSS validator. All pages come back clean with
 I used Lighthouse to test all pages. Performance results were quite low, but this is to be expected when loading multiple images from an API, and sending lots of requests to another API. All other scores are good. 
 
 #### Desktop
-
 | Page         | Performance | Accessibility | Best Practices | SEO |
 |--------------|-------------|---------------|----------------|-----|
 | Home         |          56 |            94 |             96 | 100 |
@@ -182,7 +169,6 @@ I used Lighthouse to test all pages. Performance results were quite low, but thi
 
 
 #### Mobile
-
 | Page         | Performance | Accessibility | Best Practices | SEO |
 |--------------|-------------|---------------|----------------|-----|
 | Home         |          16 |            94 |             96 | 100 |
