@@ -1,7 +1,6 @@
 # Table of Contents
 * [User Story Testing](#user-story-testing)
 * [Validator Testing](#validator-testing)
-  * [Python](#python)
   * [JSX](#jsx)
   * [HTML](#html)
   * [CSS](#css)
@@ -41,7 +40,6 @@ __EPIC - Posting__
 | As a signed-in user I can create new posts so that I can show my images to other users | The post create form lets users create new posts |
 | As a post owner I can edit the details of my post so that I can update posts or fix mistakes | There's an edit feature on each pos, acccessible to its owner |
 | As a post owner I can delete my post so that I have control over my content | Post owners have a 'delete' button on their posts |
-
 
 __EPIC - Browsing__
 | Goals | How are they achieved? |
@@ -97,16 +95,6 @@ __EPIC - Friends__
 | As an authenticated user I can restrict the visibility of my post so that only followers on my friends list can see it | Setting a post to "friends only" in the posting form makes it visible only to the post owner and their friends |
 
 ## Validator Testing
-
-### Python
-
-All Python files were run validated with pep8 and cleaned until no errors were found.
-
-<details>
-<summary>Python validation results</summary>
-
-![Python validation](documentation/pep8.png)
-</details>
 
 ### JSX
 

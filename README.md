@@ -296,17 +296,17 @@ JavaScript, Python, JSX, HTML, CSS.
 
 ### Frameworks & Libraries Used
 
-Django REST - The framework used for building the backend API
+Django REST - The framework used for building the backend API.
 
-React - The main framework, used for building the frontend application
+React - The main framework, used for building the frontend application. React allows for efficient and modular design, making it ideal for a content platform like this.
 
-PostgreSQL - Used for the database schema
+PostgreSQL - Used for the database schema.
 
-Bootstrap - Used for more efficient styling and scripting
+Bootstrap - Used for more efficient styling and scripting. Allows for intricate, responsive designs with fewer lines of code.
 
-FontAwesome - Supplies the icons used across the site
+FontAwesome - Supplies the icons used across the site. I use a lot of icons for this app, to create a better user experience and a better look.
 
-Google Fonts - Supplies the webfont used
+Google Fonts - Supplies the webfont used.
 
 ### Other Technologies Used
 
@@ -328,7 +328,7 @@ GNU Image Manipulation Program - Cropping and scaling images for faster load tim
 
 Figma - Wireframing
 
-dBeaver - ERD design
+Postman - Testing the API connection
 
 AmIResponsive - For testing how the site looks on different devices.
 
