@@ -332,7 +332,7 @@ Please refer to [TESTING.md](TESTING.md) for full testing documentation.
 
 * The friend/unfriend button would not change without refreshing the page. I had created two different ways of checking friendship status and was using the wrong one.
 * The navbar would get thicker and expand downward on medium screen sizes, covering the top of the page. I had to reduce the nav links and prevent them from wrapping the text.
-* WHen deleting a profile, the auth token would sometimes remain, making the browser think that the user was signed in with an account that doesn't exist. The page could not load correctly. I changed the way the app disposes of tokens when deleting user accounts.
+* When deleting a profile, the auth token would sometimes remain, making the browser think that the user was signed in with an account that doesn't exist. The page could not load correctly. I changed the way the app disposes of tokens when deleting user accounts.
 * When deleting a profile, the page would refresh and the toast notification would never appear. I changed the way the site redirects the user.
 * Comments could not load the user profile avatar. It was referencing the wrong profile image variable.
 * The default avatar would fail to load because the way cloudinary generates URLs did not match the default settings for the model.

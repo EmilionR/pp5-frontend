@@ -66,3 +66,9 @@
         transform: translateX(0);
     }
 }
+
+@media screen and (max-width: 420px){
+    .top-right {
+        right: 4px;
+    }
+}
