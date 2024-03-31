@@ -315,6 +315,18 @@ __Device Testing__
 ### Profile Page
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
+| Avatar | Display | The user's avatar appears on the top of the page | Pass |
+| Username | Display | The user's username appears on the top of the page | Pass |
+| User Stats | Display | The number of posts, followers, and followed users are displayed | Pass |
+| "Follows you" Message | Display | If the profile owner follows the signed-in user, a line about it appears | Pass |
+| Options Button | Display | The option button appears if signed-in as the profile owner | Pass |
+| Options Button | Click | Clicking opens the profile options menu | Pass |
+| Options Menu | Display | Display options for editing the profile, username, password, and deleting the account | Pass |
+| "Edit profile" Button | Click | Open the profile editing form | Pass |
+| "Change username" Button | Click | Open the username editing form | Pass |
+| "Change password" Button | Click | Open the password editing form | Pass |
+|  |  |  |  |
+|  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 
