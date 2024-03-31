@@ -167,7 +167,7 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comment_count}
-          {!is_owner ? (
+          {!is_owner && currentUser ? (
             <Button className={`${btnStyles.Button} ${styles.Button}`} onClick={toggleReportForm}>
               {showReportForm
               ? 
