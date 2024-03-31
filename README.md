@@ -68,6 +68,9 @@ The navigation is omnipresent across the site and displays a different set of li
 #### Profiles Sidebar:
 ![Profiles Sidebar]()
 
+Users can see a list of the most popular profiles in a dedicated sidebar. It lists the profiles with the most followers. Users can acess these profiles from the sidebar, and signed-in users can follow or unfollow them directly from the sidebar.
+
+The profile sidebar is always present on screens that are big enough. On smaller screens, it instead appears in the form of a smaller section above the main content, and on certain pages it is removed.
 
 #### Post List:
 ![Post list]()
