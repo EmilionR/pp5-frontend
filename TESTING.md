@@ -131,9 +131,9 @@ I validated my HTML pages using the W3 Nu HTML Checker. They came back with no e
 <details>
 <summary>HTML validation results</summary>
 
-[Home page](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2F)
+[Post List](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2F)
 
-[Post page](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fposts%2F8)
+[Post Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fposts%2F8)
 
 [Profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fprofiles%2F1)
 
@@ -146,14 +146,25 @@ I validated my HTML pages using the W3 Nu HTML Checker. They came back with no e
 
 ### CSS
 
-I validated my CSS with the Jigsaw CSS validator.
+I validated my CSS with the Jigsaw CSS validator. All pages come back clean without any errors.
 
 <details>
-<summary>Python validation results</summary>
+<summary>CSS validation results</summary>
 
+[Post List](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning)
 
+[Post Page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fposts%2F8&profile=css3svg&usermedium=all&warning=1&vextwarning)
+
+[Profile Page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fprofiles%2F1&profile=css3svg&usermedium=all&warning=1&vextwarning)
+
+[Signup Page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fsignup&profile=css3svg&usermedium=all&warning=1&vextwarning)
+
+[Login](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fsignin&profile=css3svg&usermedium=all&warning=1&vextwarning)
+
+[Post form](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fposts%2Fcreate&profile=css3svg&usermedium=all&warning=1&vextwarning)
 
 </details>
+
 ### Lighthouse
 
 I used Lighthouse to test all pages.
