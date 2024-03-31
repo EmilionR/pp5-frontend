@@ -26,6 +26,7 @@ Users can also create personal feeds by following other users and liking posts. 
 
 * [Design](#Design)
   * [Color Scheme](#color-scheme)
+  * [Typography](#color-scheme)
   * [Wireframes](#wireframes)
   * [Accessibility](#Accessibility)
   * [Agile Methodology](#agile-methodology)
@@ -96,12 +97,12 @@ Next to this section, a signed-in user can see buttons for following and blockin
 Below the main profile section, you can see all posts made by the profile owner.
 
 #### Register/Login Page:
-![Login page](documentation/report.png)
+![Login page](documentation/auth-pages.png)
 
 The register page lets users create a new user without any hassle. Upon registration, the user is redirected to the sign-in page. If a signed-in user somehow navigates to either of these pages, they are redirected to the home page.
 
 #### Post Report
-![Post Report](documentation/auth-pages.png)
+![Post Report](documentation/report.png)
 
 Signed-in users can see a "report" button on posts in the post list and on the post page. Clicking the button opens a report form where they can state the reason for reporting the post. When a report is submitted, it appears on the admin page to let admins quickly find potentially illicit/offensive content.
 
@@ -180,7 +181,7 @@ EPIC - User Profile
 * Edit profile: As a signed-in user I can edit my profile so that I can update my avatar and profile information
 * Update username and password: As a signed-in user I can change my username and password so that I have control over my account
 
-EPIC - Block Unwanted Content
+EPIC - Block Unwanted Content 
 * Block user: As a signed-in user I can block another user so that I do not have to see their posts
 * Report content: As a signed-in user I can report a post so that inappropriate content can be moderated
 
@@ -195,6 +196,10 @@ EPIC - Friends
 ![Color Scheme](documentation/color-scheme.png)
 
 I went with a mellow blue color scheme for the app design. I wanted something that's subtle and consistent but still more interesting than grayscale.
+
+### Typography
+
+For this app, I wanted something linear and punchy. I also wanted something that could be used consistently for many languages. Kanit was an obvious top candidate. It's simple and powerful, and it was originally designed for the Thai alphabet and then adapted to work with Roman letters and various other symbols.
 
 ### Wireframes
 
