@@ -163,6 +163,30 @@ I used Lighthouse to test all pages.
 | Register     |         ??? |           ??? |            ??? | ??? |
 
 
+### Custom Automated Testing
+
+In addition to the various validators and automated tests above, I created some automated tests to test my code.
+
+## Manual Testing
+
+__Browser Testing__
+
+I have tested this site on the following browsers:
+
+* Google Chrome
+* Mozilla Firefox
+* Brave
+* Safari
+* Microsoft Edge
+* Android Internet
+
+__Device Testing__
+
+* Lenovo Thinkpad t480
+* Samsung Galaxy S23
+* Samsung Galaxy S22
+* Samsung Galaxy S9
+
 
 
 [Back to README](README.md)
