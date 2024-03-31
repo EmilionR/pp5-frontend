@@ -333,6 +333,21 @@ __Device Testing__
 | User Posts | Display | The profile owner's posts are displayed under the profile | Pass |
 | User Posts | Display | The profile post feed has an infinite scroll layout | Pass |
 
+### Popular Profiles Section
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+| Popular Profiles | Display | The "popular profiles" section displays across the site | Pass |
+| Popular Profiles | Display | The list updates to reflect the number of followers for each profile | Pass |
+| Popular Profiles | Display | The list moves to the top and center on smaller screens | Pass |
+| Popular Profiles | Display | No "popular profiles" section appears on profile pages on smaller screens | Pass |
+| Username | Display | User avatars appear for each profile | Pass |
+| Username | Click | Open the associated profile page | Pass |
+| Avatar | Display | User avatars appear on larger screens | Pass |
+| Avatar | Click | Open the associated profile page | Pass |
+| Follow/Unfollow Button | Display | A follow/unfollow button appears next to each profile on large screens if signed in | Pass |
+| Follow/Unfollow Button | Click | Clicking the button follows/unfollows the user | Pass |
+| Follow/Unfollow Button | Click | Clicking the button updates the button and its sibling buttons on other components | Pass |
+
 ### Sign In/Up Pages
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
