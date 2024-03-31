@@ -355,5 +355,5 @@ My custom toast notification system is inspired by [React-Toastify](https://www.
 
 Jonathan Zakrisson & Paulo Arbeláez - help with troubleshooting early connection issues.
 
-Erik Jädersten & Nichamolkan Gjertz - manual testing and moral support
+Erik Jädersten & Nichamolkan Gjertz - additional user experience testing and moral support
 
