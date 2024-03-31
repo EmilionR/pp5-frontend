@@ -82,6 +82,9 @@ Signed-in users also have access to a filtered feed of the users they follow, an
 #### Post Page:
 ![Post page]()
 
+On the post page, users can see the details of a specific post. They can also see a feed of user comments for the post. Comments appear in an infinite scroll format.
+
+Signed-in users can also edit or delete any post they own from its post page.
 
 #### Profile Page:
 ![Profile page]()
