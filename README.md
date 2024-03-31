@@ -219,6 +219,7 @@ For this app, I wanted something linear and punchy. I also wanted something that
 This application was built with modularity and reusability in mind. Components are meant to work on their own and be easy to take out of their context and use elsewhere. Some components are used in multiple places across the app, with more potential uses within reach.
 
 __Post__
+
 Purpose: Display a specific post.
 Props:
 * ```id```
@@ -230,6 +231,7 @@ Used in: Post feed, Post detail page, Profile page.
 Potential uses: Could be used for a "featured post" component or a list of the most popular posts of all time.
 
 __Comment__
+
 Purpose: Display a specific comment.
 Props:
 * ```id```
@@ -240,6 +242,7 @@ Used in: Post detail page
 Potential uses: The comment component could be easily reused on profile pages to display all comments made by a specific user.
 
 __Profile__
+
 Purpose: Display a specific profile.
 Props:
 * ```profile```
@@ -249,6 +252,7 @@ Used in: Post feed, Post detail page, Profile page.
 Potential uses: Highly reusable, convenient to use anywhere where you need to show the profile/user associated with a piece of content.
 
 __Avatar__
+
 Purpose: Display a profile avatar.
 Props:
 * ```profile```
@@ -258,6 +262,7 @@ Used in: Post feed, Post detail page, Profile page, NavBar.
 Potential uses: Highly reusable, convenient to use anywhere where you need to show the avatar associated with a profile.
 
 __Asset__
+
 Purpose: Display a media asset.
 Props:
 * ```src```
@@ -267,6 +272,7 @@ Used in: Post feed, Post detail page, Profile page, NavBar.
 Potential uses: Highly reusable, handy for displaying static images, loading animations, and more.
 
 __NavBar__
+
 Purpose: Supply navigation links across the site.
 Props: None
 Used in: Everywhere.
