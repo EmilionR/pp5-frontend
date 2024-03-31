@@ -270,28 +270,31 @@ __Device Testing__
 | Post | Display | Post displays the number of likes and comments | Pass |
 | Avatar | Display | Post owner's avatar is present on the post | Pass |
 | Avatar | Click | Clicking an avatar opens the associated profile page | Pass |
+| Edit Button | Display |  Display if logged in as the author of the post | Pass |
+| Edit Button | Click | Open the post editing page | Pass |
+| Delete Button | Display |  Display if logged in as the author of the post | Pass |
+| Delete Button | Click | Delete the post | Pass |
 | Like Icon | Click | Like/Unlinke the post | Pass |
 | Like Counter | Display | Display the correct number of likes received by the post | Pass |
 | Comment Icon | Click | Open the post's comment section | Pass |
 | Comment Counter | Display | Display the correct number of comments on the post | Pass |
+| Report button | Display | Only displays on other users' posts | Pass |
+| Report button | Click | Open the report form | Pass |
+| Report form | Submit | Sends a report to the admin page | Pass |
+
+#### Comments
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
 | Comment Form | Display | Display when a user is signed in | Pass |
 | Comment Form | Submit | Submit the form and add the comment to the post | Pass |
 | Comments | Display | Commments appear in descending order in an infinite scroll format | Pass |
 | Comments | Display | Comments display the owner's username and avatar | Pass |
 | Comments | Display | Comments by blocked users are blocked | Pass |
 | Comments | Click | Clicking the avatar opens the associated profile | Pass |
-
-#### Comment Form
-| Feature | Action | Expected Outcome | Pass/Fail |
-| --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-
-#### Comments
-| Feature | Action | Expected Outcome | Pass/Fail |
-| --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| Edit Button | Display |  Display if logged in as the author of the post | Pass |
+| Edit Button | Click | Open the comment form | Pass |
+| Delete Button | Display |  Display if logged in as the author of the post | Pass |
+| Delete Button | Click | Delete the comment | Pass |
 
 
 ### Post Form
