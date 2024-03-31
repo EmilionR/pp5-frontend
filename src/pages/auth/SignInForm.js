@@ -61,6 +61,7 @@ function SignInForm() {
       >
         <Image
           className={`${styles.Image}`}
+          alt="cat photo"
           src={
             "https://res.cloudinary.com/dfs3h5zak/image/upload/v1706451463/samples/animals/cat.jpg"
           }

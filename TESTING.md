@@ -167,35 +167,35 @@ I validated my CSS with the Jigsaw CSS validator. All pages come back clean with
 
 ### Lighthouse
 
-I used Lighthouse to test all pages.
+I used Lighthouse to test all pages. Performance results were quite low, but this is to be expected when loading multiple images from an API, and sending lots of requests to another API. All other scores are good. 
 
 #### Desktop
 
 | Page         | Performance | Accessibility | Best Practices | SEO |
 |--------------|-------------|---------------|----------------|-----|
-| Home         |         ??? |           ??? |            ??? | ??? |
-| Post Detail  |         ??? |           ??? |            ??? | ??? |
-| Post Form    |         ??? |           ??? |            ??? | ??? |
-| Profile page |         ??? |           ??? |            ??? | ??? |
-| Login        |         ??? |           ??? |            ??? | ??? |
-| Register     |         ??? |           ??? |            ??? | ??? |
+| Home         |          56 |            94 |             96 | 100 |
+| Post Detail  |          64 |            93 |             96 | 100 |
+| Post Form    |          93 |            94 |            100 | 100 |
+| Profile page |          84 |            91 |             96 |  91 |
+| Login        |          91 |            92 |             96 | 100 |
+| Register     |          90 |            92 |             96 | 100 |
 
 
 #### Mobile
 
 | Page         | Performance | Accessibility | Best Practices | SEO |
 |--------------|-------------|---------------|----------------|-----|
-| Home         |         ??? |           ??? |            ??? | ??? |
-| Post Detail  |         ??? |           ??? |            ??? | ??? |
-| Post Form    |         ??? |           ??? |            ??? | ??? |
-| Profile page |         ??? |           ??? |            ??? | ??? |
-| Login        |         ??? |           ??? |            ??? | ??? |
-| Register     |         ??? |           ??? |            ??? | ??? |
+| Home         |          16 |            94 |             96 | 100 |
+| Post Detail  |          16 |            94 |             96 | 100 |
+| Post Form    |          50 |            94 |             96 | 100 |
+| Profile page |          42 |            91 |             93 |  92 |
+| Login        |          51 |            94 |             96 | 100 |
+| Register     |          50 |            94 |             96 | 100 |
 
 
 ### Custom Automated Testing
 
-In addition to the various validators and automated tests above, I created some automated tests to test my code.
+
 
 ## Manual Testing
 
