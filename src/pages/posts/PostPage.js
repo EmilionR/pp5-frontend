@@ -40,7 +40,7 @@ function PostPage({showToast}) {
         setComments(comments);
         setBlocks(blockData.results);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
     handleMount();

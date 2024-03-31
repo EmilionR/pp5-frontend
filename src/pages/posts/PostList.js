@@ -35,7 +35,7 @@ function PostList({ message, showToast, filter = "" }) {
         setFriends(friends.results);
         setBlocks(blocks.results);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
 
@@ -45,7 +45,7 @@ function PostList({ message, showToast, filter = "" }) {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

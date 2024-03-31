@@ -37,7 +37,7 @@ function CommentEditForm(props) {
       showToast("Success!", "Your comment has been updated.");
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

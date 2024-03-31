@@ -86,7 +86,7 @@ function ProfilePage({ showToast }) {
 
         setHasLoaded(true);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     fetchData();
@@ -101,7 +101,7 @@ function ProfilePage({ showToast }) {
       showToast("Success!", "Your account has been deleted.");
       history.push("/");
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

@@ -52,7 +52,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -68,7 +68,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -82,7 +82,7 @@ const Post = (props) => {
       showToast("Success!", "Post deleted.")
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -102,7 +102,7 @@ const Post = (props) => {
       setShowReportForm(false);
       setShowConfirmation(true);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

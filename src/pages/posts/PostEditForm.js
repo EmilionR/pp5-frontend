@@ -39,7 +39,7 @@ function PostEditForm({showToast}) {
         is_owner ? setPostData({ title, content, image }) : history.push("/");
         setFriendsOnly(friends_only);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
     //
@@ -86,7 +86,7 @@ function PostEditForm({showToast}) {
       showToast("Success!", "Post edited.")
       history.push(`/posts/${id}`);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
