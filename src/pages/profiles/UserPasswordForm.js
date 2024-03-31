@@ -56,7 +56,7 @@ const UserPasswordForm = () => {
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
-          <Form onSubmit={handleSubmit}>
+          <Form className="my-2" onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
               <Form.Control
@@ -88,16 +88,16 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Black}`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Black}`}
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>
