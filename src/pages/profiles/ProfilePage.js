@@ -21,7 +21,9 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image, Modal } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
+import Modal from "react-bootstrap/Modal";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData, removeTokenTimestamp } from "../../utils/utils";
@@ -29,7 +31,7 @@ import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/Options";
 import axios from "axios";
 
-function ProfilePage({showToast}) {
+function ProfilePage({ showToast }) {
   const history = useHistory();
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -111,10 +113,12 @@ function ProfilePage({showToast}) {
     <>
       {profile?.is_owner && (
         <>
-          <ProfileEditDropdown id={profile?.id} deleteHandler={toggleDeleteModal} />
+          <ProfileEditDropdown
+            id={profile?.id}
+            deleteHandler={toggleDeleteModal}
+          />
           <div className={styles.DeleteModal}>
-           
-              <Modal.Dialog>
+            <Modal.Dialog>
               <Modal show={showModal}>
                 <Modal.Header>
                   <Modal.Title>Delete account?</Modal.Title>
@@ -125,15 +129,21 @@ function ProfilePage({showToast}) {
                 </Modal.Body>
 
                 <Modal.Footer>
-                  <Button className={`${btnStyles.Button} ${btnStyles.Black}`} onClick={toggleDeleteModal}>
+                  <Button
+                    className={`${btnStyles.Button} ${btnStyles.Black}`}
+                    onClick={toggleDeleteModal}
+                  >
                     Cancel
                   </Button>
-                  <Button className={`${btnStyles.Button} ${btnStyles.Black}`} onClick={handleDelete}>
+                  <Button
+                    className={`${btnStyles.Button} ${btnStyles.Black}`}
+                    onClick={handleDelete}
+                  >
                     Delete
                   </Button>
                 </Modal.Footer>
-                </Modal>
-              </Modal.Dialog>
+              </Modal>
+            </Modal.Dialog>
           </div>
         </>
       )}
@@ -169,7 +179,10 @@ function ProfilePage({showToast}) {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="mt-3 d-flex flex-lg-column flex-wrap justify-content-center">
+        <Col
+          lg={3}
+          className="mt-3 d-flex flex-lg-column flex-wrap justify-content-center"
+        >
           {/* Display friend/unfriend button only if the profile owner is following the current user */}
           {currentUser &&
           myFollowers.some((follow) => follow.owner === profile?.owner) ? (
