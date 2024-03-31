@@ -53,7 +53,6 @@ Users can also create personal feeds by following other users and liking posts. 
 ### Existing Features
 
 #### General Features
-![General Features]()
 
 * Fully responsive design
 * Full frontend CRUD for user content and profiles 
@@ -62,33 +61,33 @@ Users can also create personal feeds by following other users and liking posts. 
 * Redirection of users based on authorization
 
 #### Navigation Bar:
-![Navigation Bar]()
+![Profiles Sidebar](documentation/navbar.png)
 
 The navigation is omnipresent across the site and displays a different set of links depending on whether or not the user is signed in. The layout and content are responsive and adapt to the screen size.
 
 #### Profiles Sidebar:
-![Profiles Sidebar]()
+![Profiles Sidebar](documentation/sidebar.png)
 
 Users can see a list of the most popular profiles in a dedicated sidebar. It lists the profiles with the most followers. Users can acess these profiles from the sidebar, and signed-in users can follow or unfollow them directly from the sidebar.
 
 The profile sidebar is always present on screens that are big enough. On smaller screens, it instead appears in the form of a smaller section above the main content, and on certain pages it is removed.
 
 #### Post List:
-![Post list]()
+![Post list](documentation/post-list.png)
 
 The main page of the app lets the user browse all posts in an infinite scroll format. A simple search bar enables filtering by page titles and usernames in real-time. Clicking a post opens the post page for that particular post.
 
 Signed-in users also have access to a filtered feed of the users they follow, and one for only the posts they have liked. If the user has blocked another user, their posts will not appear in the post list. Any post that is set to "friends only" visibility only appears in the post list if its owner has marked you as a friend.
 
 #### Post Page:
-![Post page]()
+![Post page](documentation/post-page.png)
 
 On the post page, users can see the details of a specific post. They can also see a feed of user comments for the post. Comments appear in an infinite scroll format.
 
 Signed-in users can also edit or delete any post they own from its post page.
 
 #### Profile Page:
-![Profile page]()
+![Profile page](documentation/profile-page.png)
 
 The profile page displays information about the associated user. For example, you can see how many posts they've made, how many followers they have, and how many profiles they're following. If the user is your follower, you see a line about that as well. There's also an information section where the user can add their own information.
 
@@ -97,12 +96,12 @@ Next to this section, a signed-in user can see buttons for following and blockin
 Below the main profile section, you can see all posts made by the profile owner.
 
 #### Register/Login Page:
-![Login page]()
+![Login page](documentation/report.png)
 
-The register page lets user create a new user without any hassle. Upon registration, the user is redirected to the sign-in page. If a signed-in user somehow navigates to either of these pages, they are redirected to the home page.
+The register page lets users create a new user without any hassle. Upon registration, the user is redirected to the sign-in page. If a signed-in user somehow navigates to either of these pages, they are redirected to the home page.
 
 #### Post Report
-![Post Report]()
+![Post Report](documentation/auth-pages.png)
 
 Signed-in users can see a "report" button on posts in the post list and on the post page. Clicking the button opens a report form where they can state the reason for reporting the post. When a report is submitted, it appears on the admin page to let admins quickly find potentially illicit/offensive content.
 
