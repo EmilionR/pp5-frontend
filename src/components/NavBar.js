@@ -29,7 +29,7 @@ const NavBar = () => {
   // Special navlink, display to the left when user is signed in
   const addPostIcon = (
     <NavLink
-      className={styles.NavLink}
+      className={`${styles.NavLink} d-none d-sm-block`}
       activeClassName={styles.Active}
       to="/posts/create"
     >
