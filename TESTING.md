@@ -122,36 +122,38 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 
 ### JSX
 
-All JSX files were validated with ????.
-
-<details>
-<summary>JavaScript validation results</summary>
-
-![JavaScript validation](documentation/jshint.png)
-</details>
+I have used jsx-Prettier and ESLint throughout the development to check that my JSX and JavaScript meet the standards for clean code.
 
 ### HTML
 
-I validated my HTML pages using the W3 Nu HTML Checker. You can check the results for each page below.
+I validated my HTML pages using the W3 Nu HTML Checker. They came back with no errors, only pointers about redundant trailing slashes left by React. You can check the results for each page below.
 
-[Home page]()
+<details>
+<summary>HTML validation results</summary>
 
-[Post page]()
+[Home page](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2F)
 
-[Profile]()
+[Post page](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fposts%2F8)
 
-[Signup page]()
+[Profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fprofiles%2F1)
 
-[Login]()
+[Signup page](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fsignup)
 
-[Logout]()
+[Login](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fsignin)
+
+[Post Form](https://validator.w3.org/nu/?doc=https%3A%2F%2Femil-pp5-frontend-9557540625e4.herokuapp.com%2Fposts%2Fcreate)
+</details>
 
 ### CSS
 
 I validated my CSS with the Jigsaw CSS validator.
 
-[CSS results]()
+<details>
+<summary>Python validation results</summary>
 
+
+
+</details>
 ### Lighthouse
 
 I used Lighthouse to test all pages.
