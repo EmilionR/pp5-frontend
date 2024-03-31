@@ -351,7 +351,17 @@ __Device Testing__
 ### Sign In/Up Pages
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| Username Input | Display | A label and placeholder make the purpose clear | Pass |
+| Username Input | Input | The user can input a username | Pass |
+| Password Input | Display | A label and placeholder make the purpose clear | Pass |
+| Password Input | Input | The user can input a username | Pass |
+| Confirm Password Input | Display | A label and placeholder make the purpose clear | Pass |
+| Confirm Password Input | Input | The user can input a password | Pass |
+| Sign Up Button | Click | Validate the form before submission | Pass |
+| Sign Up Button | Click | Notify the user about any invalid data | Pass |
+| Sign Up Button | Click | Submit the form and create the new user and profile | Pass |
+| Sign In Button | Click | Validate the form before submission | Pass |
+| Sign In Button | Click | Notify the user about any invalid data | Pass |
+| Sign In Button | Click | Submit the form and create the new user and profile | Pass |
 
 [Back to README](README.md)
