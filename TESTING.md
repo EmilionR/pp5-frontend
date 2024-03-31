@@ -266,8 +266,20 @@ __Device Testing__
 ### Post Detail
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| Post | Display | Post displays title, author, image, content, and time of posting | Pass |
+| Post | Display | Post displays the number of likes and comments | Pass |
+| Avatar | Display | Post owner's avatar is present on the post | Pass |
+| Avatar | Click | Clicking an avatar opens the associated profile page | Pass |
+| Like Icon | Click | Like/Unlinke the post | Pass |
+| Like Counter | Display | Display the correct number of likes received by the post | Pass |
+| Comment Icon | Click | Open the post's comment section | Pass |
+| Comment Counter | Display | Display the correct number of comments on the post | Pass |
+| Comment Form | Display | Display when a user is signed in | Pass |
+| Comment Form | Submit | Submit the form and add the comment to the post | Pass |
+| Comments | Display | Commments appear in descending order in an infinite scroll format | Pass |
+| Comments | Display | Comments display the owner's username and avatar | Pass |
+| Comments | Display | Comments by blocked users are blocked | Pass |
+| Comments | Click | Clicking the avatar opens the associated profile | Pass |
 
 #### Comment Form
 | Feature | Action | Expected Outcome | Pass/Fail |
