@@ -166,7 +166,7 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="mt-3 d-flex flex-lg-column">
+        <Col lg={3} className="mt-3 d-flex flex-lg-column flex-wrap justify-content-center">
           {/* Display friend/unfriend button only if the profile owner is following the current user */}
           {currentUser &&
           myFollowers.some((follow) => follow.owner === profile?.owner) ? (
