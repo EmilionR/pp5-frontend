@@ -15,7 +15,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useProfileData,
@@ -29,7 +29,8 @@ import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/Options";
 import axios from "axios";
 
-function ProfilePage() {
+function ProfilePage({showToast}) {
+  const history = useHistory();
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
 
@@ -94,7 +95,8 @@ function ProfilePage() {
       axios.post("dj-rest-auth/logout/");
       await axiosReq.delete(`/profiles/${id}/`);
       setCurrentUser(null);
-      window.location.href = "/";
+      showToast("Success!", "Your account has been deleted.");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }

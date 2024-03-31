@@ -63,7 +63,7 @@ export function ProfileEditDropdown({ id, deleteHandler }) {
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
-          aria-label="Ddit password"
+          aria-label="Edit password"
         >
           <i className="fas fa-key" />
           Change password
