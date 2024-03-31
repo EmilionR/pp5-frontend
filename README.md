@@ -47,7 +47,7 @@ Users can also create personal feeds by following other users and liking posts. 
   
 * [Credits](#Credits)
   * [Tutorials & Code Used](#tutorials--code-used)
-  * [Acknowledgments](#acknowledgements)
+  * [Acknowledgments](#acknowledgments)
 
 ## Features
 
