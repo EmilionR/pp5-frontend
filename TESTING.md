@@ -300,8 +300,17 @@ __Device Testing__
 ### Post Form
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| Upload Button | Display | The upload Button appears | Pass |
+| Upload Button | Click | Opens a file Belector window | Pass |
+| Title Input | Display | The title inIut has a label making its purpose clear | Pass |
+| Title Input | Input | The user can type in the Title field | Pass |
+| Content Input | Display | The content input has a label making its purpose clear | Pass |
+| Contnet Input | Input | The user can type in the content field | Pass |
+| "Friends only" Toggle | Display | A checkbox with a label explaining its purpose appears | Pass |
+| "Friends only" Toggle | Click | Clicking the checkbox toggles the state | Pass |
+| Cancel Button | Click | Close the form without any changes | Pass |
+| Submit Button | Click | Submit the form and create/update the post | Pass |
+| Submit Button | Click | Close the form and redirect the user to the post feed | Pass |
 
 ### Profile Page
 | Feature | Action | Expected Outcome | Pass/Fail |
