@@ -12,6 +12,7 @@ Users can also create personal feeds by following other users and liking posts. 
   * [Existing Features](#existing-features)
     * [General Features](#general-features)
     * [Navigation Bar](#navigation-bar)
+    * [Profiles Sidebar](#profiles-sidebar)
     * [Post List](#post-list)
     * [Post Page](#post-page)
     * [Profile Page](#profile-page)
@@ -57,9 +58,15 @@ Users can also create personal feeds by following other users and liking posts. 
 * Full frontend CRUD for user content and profiles 
 * Custom toast notification system
 * Advanced user interaction options
+* Redirection of users based on authorization
 
 #### Navigation Bar:
 ![Navigation Bar]()
+
+The navigation is omnipresent across the site and displays a different set of links depending on whether or not the user is signed in. The layout and content are responsive and adapt to the screen size.
+
+#### Profiles Sidebar:
+![Profiles Sidebar]()
 
 
 #### Post List:
