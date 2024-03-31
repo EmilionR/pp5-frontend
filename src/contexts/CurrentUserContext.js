@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
 // Create a context to store the current user
 export const CurrentUserContext = createContext();
@@ -35,18 +36,21 @@ export const CurrentUserProvider = ({ children }) => {
     // Add a request interceptor
     axiosReq.interceptors.request.use(
       async (config) => {
-        try {
-          // Refresh the token
-          await axios.post("/dj-rest-auth/token/refresh/");
-        } catch (err) {
-          // If the refresh token fails, redirect to the sign-in page
-          setCurrentUser((prevCurrentUser) => {
-            if (prevCurrentUser) {
-              history.push("/signin");
-            }
-            return null;
-          });
-          return config;
+        if (shouldRefreshToken()) {
+          try {
+            // Refresh the token
+            await axios.post("/dj-rest-auth/token/refresh/");
+          } catch (err) {
+            // If the refresh token fails, redirect to the sign-in page
+            setCurrentUser((prevCurrentUser) => {
+              if (prevCurrentUser) {
+                history.push("/signin");
+              }
+              return null;
+            });
+            removeTokenTimestamp();
+            return config;
+          }
         }
         return config;
       },
@@ -71,6 +75,7 @@ export const CurrentUserProvider = ({ children }) => {
               }
               return null;
             });
+            removeTokenTimestamp();
           }
           return axios(err.config);
         }

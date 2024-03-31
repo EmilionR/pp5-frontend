@@ -24,7 +24,7 @@ import {
 import { Button, Image, Modal } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
-import { fetchMoreData } from "../../utils/utils";
+import { fetchMoreData, removeTokenTimestamp } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/Options";
 import axios from "axios";
@@ -95,6 +95,7 @@ function ProfilePage({showToast}) {
       axios.post("dj-rest-auth/logout/");
       await axiosReq.delete(`/profiles/${id}/`);
       setCurrentUser(null);
+      removeTokenTimestamp();
       showToast("Success!", "Your account has been deleted.");
       history.push("/");
     } catch (error) {
