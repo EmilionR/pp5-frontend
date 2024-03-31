@@ -42,7 +42,7 @@ export const OptionsDropdown = ({ handleEdit, handleDelete, showToast }) => {
   );
 };
 
-export function ProfileEditDropdown({ id }) {
+export function ProfileEditDropdown({ id, handleDelete }) {
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
@@ -50,23 +50,30 @@ export function ProfileEditDropdown({ id }) {
       <Dropdown.Menu>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
-          aria-label="edit-profile"
+          aria-label="Edit profile"
         >
           <i className="fas fa-user-pen" /> Edit profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
-          aria-label="edit-username"
+          aria-label="Edit username"
         >
           <i className="fas fa-file-signature" />
           Change username
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
-          aria-label="edit-password"
+          aria-label="Ddit password"
         >
           <i className="fas fa-key" />
           Change password
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={handleDelete}
+          aria-label="Delete this account"
+        >
+          <i className="fas fa-user-slash" />
+          Delete account
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

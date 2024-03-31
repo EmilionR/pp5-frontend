@@ -11,7 +11,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -24,12 +24,14 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/Options";
+import axios from "axios";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();
 
   const {
@@ -84,9 +86,21 @@ function ProfilePage() {
 
   }, [id, setProfileData, currentUser]);
 
+  const handleDelete = async () => {
+    try {
+      console.log("Deleting profile")
+      axios.post("dj-rest-auth/logout/");
+      await axiosReq.delete(`/profiles/${id}/`);
+      setCurrentUser(null);
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} handleDelete={handleDelete} />}
       <Row noGutters className="p-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
