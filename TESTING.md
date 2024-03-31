@@ -187,6 +187,53 @@ __Device Testing__
 * Samsung Galaxy S22
 * Samsung Galaxy S9
 
+### Site Navigation
 
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Home Page
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Post List
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Post Detail
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Post Form
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Profile Page
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Sign In/Up Pages
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+### Error Page
+| Feature | Action | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
 
 [Back to README](README.md)
