@@ -10,10 +10,11 @@ Users can also create personal feeds by following other users and liking posts. 
 
 * [Features](#Features)
   * [Existing Features](#existing-features)
-    * [Home page](#home-page)
-    * [Post list](#post-list)
-    * [Post page](#post-page)
-    * [Profile page](#profile-page)
+    * [General Features](#general-features)
+    * [Navigation Bar](#navigation-bar)
+    * [Post List](#post-list)
+    * [Post Page](#post-page)
+    * [Profile Page](#profile-page)
     * [Register/Login page](#registerlogin-page)
   * [Future Implementations](#future-implementations)
   * [Defensive Design Feaures](#defensive-design-features)
@@ -49,13 +50,24 @@ Users can also create personal feeds by following other users and liking posts. 
 
 ### Existing Features
 
-#### Home Page:
-![Home page]()
+#### General Features
+![General Features]()
+
+* Fully responsive design
+* Full frontend CRUD for user content and profiles 
+* Custom toast notification system
+* Advanced user interaction options
+
+#### Navigation Bar:
+![Navigation Bar]()
 
 
 #### Post List:
 ![Post list]()
 
+The main page of the app lets the user browse all posts in an infinite scroll format. A simple search bar enables filtering by page titles and usernames in real-time. Clicking a post opens the post page for that particular post.
+
+Signed-in users also have access to a filtered feed of the users they follow, and one for only the posts they have liked.
 
 #### Post Page:
 ![Post page]()
