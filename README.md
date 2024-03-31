@@ -78,7 +78,7 @@ The profile sidebar is always present on screens that are big enough. On smaller
 
 The main page of the app lets the user browse all posts in an infinite scroll format. A simple search bar enables filtering by page titles and usernames in real-time. Clicking a post opens the post page for that particular post.
 
-Signed-in users also have access to a filtered feed of the users they follow, and one for only the posts they have liked. If the user has blocked another user, their posts will not appear in the post list. Any post that is set to "friends only" visibility only appear in the post list if its owner has marked you as a friend.
+Signed-in users also have access to a filtered feed of the users they follow, and one for only the posts they have liked. If the user has blocked another user, their posts will not appear in the post list. Any post that is set to "friends only" visibility only appears in the post list if its owner has marked you as a friend.
 
 #### Post Page:
 ![Post page]()
@@ -108,6 +108,7 @@ Signed-in users can see a "report" button on posts in the post list and on the p
 
 ### Future Implementations:
 
+Future iterations of the project will include more user pages. Users will have access to lists of friends, comments, and blocked users. Profile pages will include more information as well. Blocking a user will also have more extensive effects beyond simply hiding content.
 
 ### Defensive Design Features
 
