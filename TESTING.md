@@ -325,10 +325,13 @@ __Device Testing__
 | "Edit profile" Button | Click | Open the profile editing form | Pass |
 | "Change username" Button | Click | Open the username editing form | Pass |
 | "Change password" Button | Click | Open the password editing form | Pass |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| "Delete account" Button | Click | Opens a delete confirmation modal | Pass |
+| Delete Confirmation Modal | Display | Displays a message about permanent deletion and options to confirm or cancel | Pass |
+| Delete Confirmation Modal | Effect | Modal prevents interaction with the page until user responds to the modal | Pass |
+| Cancel Button | Click | Closes the deltion modal without any action | Pass |
+| Delete Button | Click | Deletes the profile and its associated user instance, along with any cookies and auth tokens, then redirects the user | Pass |
+| User Posts | Display | The profile owner's posts are displayed under the profile | Pass |
+| User Posts | Display | The profile post feed has an infinite scroll layout | Pass |
 
 ### Sign In/Up Pages
 | Feature | Action | Expected Outcome | Pass/Fail |
