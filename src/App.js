@@ -16,6 +16,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import Toast from "./components/Toast";
 import { useState } from "react";
+import NotFound from "./components/NotFound";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -91,7 +92,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm showToast={showToast} />}
           />
-          <Route render={() => <h1>Page not found!</h1>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
       <Toast toastList={notifications} position="top-right" setList={setNotifications} />
