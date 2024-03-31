@@ -141,6 +141,7 @@ EPIC - Navigation
 * Routing: As a user I can navigate easily through pages so that I can browse the site without reloading the page
 
 EPIC - Authentication
+* Sign up: As a user I can create an account so that I can access member-only features
 * Sign in: As a registered user I can sign in to the app so that I can use my account
 * Authentication status: As a user I can see whether or not I am signed in so that I can sign in or out as needed
 * Stay logged in: As a user I can stay logged-in until I choose to log out so that I can have a smooth experience
