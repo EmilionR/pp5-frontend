@@ -242,8 +242,26 @@ __Device Testing__
 ### Home Page
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| Post list | Display | All posts appear in sorted order | Pass |
+| Post | Display | Post displays title, author, image, content, and time of posting | Pass |
+| Post | Display | Post displays the number of likes and comments | Pass |
+| Avatar | Display | Post owner's avatar is present on the post | Pass |
+| Avatar | Click | Clicking an avatar opens the associated profile page | Pass |
+| Post Link | Click | Clicking the post opens the detail page | Pass |
+| Like Icon | Click | Like/Unlinke the post | Pass |
+| Like Counter | Display | Display the correct number of likes received by the post | Pass |
+| Comment Icon | Click | Open the post's comment section | Pass |
+| Comment Counter | Display | Display the correct number of comments on the post | Pass |
+| Search Bar | Input | Apply search term and filter posts automatically | Pass |
+| 'New Post' Button | Display | Only visible to signed-in users | Pass |
+| 'New Post' Button | Click | Open post form | Pass |
+| Post feed | Display | All posts appear in an infinite scroll feed | Pass |
+| Post feed | Display | Posts by blocked users are not displayed | Pass |
+| Post feed | Display | "Following" feed only displays posts by followed users | Pass |
+| Post feed | Display | "Liked" feed only displays posts the current user has liked | Pass |
+| Report button | Display | Only displays on other users' posts | Pass |
+| Report button | Click | Open the report form | Pass |
+| Report form | Submit | Sends a report to the admin page | Pass |
 
 ### Post Detail
 | Feature | Action | Expected Outcome | Pass/Fail |
