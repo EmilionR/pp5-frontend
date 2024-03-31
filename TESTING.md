@@ -11,10 +11,10 @@
   * [Site Navigation](#site-navigation)
   * [Home Page](#home-page)
   * [Post Detail](#post-detail)
-    * [Comment Form](#comment-form)
     * [Comments](#comments)
   * [Post Form](#post-form)
   * [Profile Page](#profile-page)
+  * [Popular Profiles Section](#popular-profiles-section)
   * [Sign In/Up Pages](#sign-inup-pages)
 
 [Back to README](README.md)
